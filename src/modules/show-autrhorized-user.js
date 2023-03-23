@@ -9,9 +9,14 @@ function removeButtonLogOut() {
     buttonLogOutt.hidden = true;
 }
 function showUsername() {
-    let username = sessionStorage.getItem('name');
-    let usernameBlock = document.querySelector('.username');
-    usernameBlock.textContent = username;
+    let keys = Object.keys(localStorage);
+    for (let key of keys) {
+        if (JSON.parse(localStorage.getItem(key)).status === 'online') {
+            let username = key;
+            let usernameBlock = document.querySelector('.username');
+            usernameBlock.textContent = username;
+        }
+    }
 }
 
 export {removeButtonLogIn, removeButtonLogOut, showUsername} 

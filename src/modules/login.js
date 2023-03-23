@@ -1,5 +1,3 @@
-import { Admin } from './admin-data.js';
-
 let usernameInput = document.querySelector('#username');
 let passwordInput = document.querySelector('#password');
 let wrongMessage = document.querySelector('.wrong-message');
@@ -9,11 +7,14 @@ if (wrongMessage) {
 
 function doLogin(loginButton) {
     loginButton.onclick = () => {
-        if (usernameInput.value === Admin.username && +passwordInput.value === Admin.password) {
-            window.location.href = 'profile.html';
-            sessionStorage.setItem('name', Admin.username);
-            sessionStorage.setItem('password', Admin.password);
-            sessionStorage.setItem('status', 'online');
+      if (localStorage.getItem(usernameInput.value)) {
+            window.location.href = 'index.html';
+            let parsed = JSON.parse(localStorage.getItem(usernameInput.value));
+            if (`${parsed.password}` === passwordInput.value) {
+            parsed.status = 'online';
+            let stringified = JSON.stringify(parsed);
+            localStorage.setItem(usernameInput.value, stringified)
+            }
         }
         else {
             wrongMessage.hidden = false;

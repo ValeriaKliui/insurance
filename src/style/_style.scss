@@ -5,6 +5,7 @@ html {
 .list {
   text-decoration: none;
   list-style-type: none;
+  padding-left: 0;
 }
 
 .link {
@@ -54,7 +55,7 @@ body {
 
 .header {
   @include flex_space-between;
-  position: fixed;
+  // position: fixed;
   background-color: $the-lightest;
   width: 98%;
   box-shadow: $light-shadow;
@@ -62,11 +63,33 @@ body {
 }
 .header__link {
   padding: 15px;
-  height: 100%;
   transition: all 0.15s ease-in-out;
   &:hover {
     background-color: $light-color;
     color: $main-color;
+  }
+}
+.header__list {
+  .header__item {
+    display: none;
+    padding: 0 10px;
+    transition: all 0.15s ease-in-out;
+  }
+  .header__item_first {
+    display: block;
+    transition: all 0.15s ease-in-out;
+  }
+}
+.header__list:hover {
+  margin: 0;
+transform: translateY(100px);
+  .header__item {
+    transition: all 0.25s ease-in-out;
+    display: block;
+    padding: 8px;
+  }
+  .header__item:hover {
+    background-color: $light-color;
   }
 }
 .contacts {
