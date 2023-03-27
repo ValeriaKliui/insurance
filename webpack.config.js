@@ -37,6 +37,10 @@ module.exports = {
       filename: 'sign-up.html',
       template: path.resolve(__dirname, 'src', 'sign-up.html'),
     }),
+    new HtmlWebpackPlugin({
+      filename: 'kasko.html',
+      template: path.resolve(__dirname, 'src', 'kasko.html'),
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),

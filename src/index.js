@@ -10,6 +10,7 @@ import { doSignUp } from './modules/sign-up';
 import { doRegister, allUssers } from './modules/register'
 import { checkWhoOnline } from './modules/check-who-online'
 import {createAdmin} from './modules/register'
+import {calculate} from './modules/calculations'
 
 if (!localStorage.getItem('Admin')) createAdmin();
 
@@ -63,25 +64,7 @@ if (registerButton)  {
     }
 }
 
-// let counter = 0;
-
-// let ddd = document.querySelector('.ddd');
-// let buttonss = document.querySelector('.csdlick');
-
-
-
-// button.onclick = function () {
-//     counter++;
-//     let user = new User(`${counter}${name.value}`, password.value);
-//     allUsers.push(user);
-//     console.log(user)
-//     console.log(allUsers)
-
-//     buttonss.onclick = function () {
-//         user.sstatus = 'online';
-//         allUsers.push(user);
-
-//         console.log(user)
-//         console.log(allUsers)
-//     }
-// }
+let finalCost = document.querySelector('.final-cost');
+if (finalCost) {
+    calculate();
+}
