@@ -1,0 +1,81 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.list {
+    text-decoration: none;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.text {
+    @include font('Stem Light', 16px);
+}
+
+.subtitle {
+    @include font('Stem Regular', 20px);
+}
+
+.title {
+    @include font('Stem Bold', 24px);
+    color: $main-color;
+}
+
+.button {
+    text-align: center;
+    @include font('Stem Regular', 20px);
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px 50px;
+    background: $primary-color no-repeat 20px 50%;
+    border: none;
+    background-size: 22px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+
+    &:hover {
+        box-shadow: 4px 4px 8px $light-shadow;
+        transform: translate(0, -2px);
+    }
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav article ads"
+        "nav footer footer";
+    grid-template-rows: 80px 1fr 70px;
+    grid-template-columns: 20% 1fr 15%;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    height: 100vh;
+    margin: 0;
+}
+
+#pageHeader {
+    grid-area: header;
+}
+
+#pageFooter {
+    grid-area: footer;
+}
+
+#mainArticle {
+    grid-area: article;
+}
+
+#mainNav {
+    grid-area: nav;
+    background-color: $main-color;
+}
+
+#siteAds {
+    grid-area: ads;
+}
