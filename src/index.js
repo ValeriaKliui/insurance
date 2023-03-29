@@ -6,11 +6,10 @@ import { doLogin } from './modules/login';
 import { doLogout } from './modules/logout';
 import { redirectAnouthorized } from './modules/redirect-anouthorized';
 import { checkPassword } from './modules/check-password';
-import { doSignUp } from './modules/sign-up';
-import { doRegister, allUssers } from './modules/register'
+import { doRegister } from './modules/register'
 import { checkWhoOnline } from './modules/check-who-online'
 import {createAdmin} from './modules/register'
-import {calculate} from './modules/calculations'
+import {calculate} from './modules/kasko'
 
 if (!localStorage.getItem('Admin')) createAdmin();
 
@@ -50,12 +49,6 @@ if (buttonLogOut) {
 let passwordInputFirst = document.querySelector('#password');
 let passwordInputSecond = document.querySelector('.password-field__check');
 checkPassword(passwordInputFirst, passwordInputSecond);
-
-// let signUpButton = document.querySelector('.sign-up-button');
-// if (signUpButton) {
-//     doSignUp(signUpButton);
-// }
-
 
 let registerButton = document.querySelector('.sign-up-button');
 if (registerButton)  {

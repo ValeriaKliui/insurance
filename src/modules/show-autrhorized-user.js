@@ -11,12 +11,14 @@ function removeButtonLogOut() {
 function showUsername() {
     let keys = Object.keys(localStorage);
     for (let key of keys) {
+        if (!key.startsWith('program')) {
         if (JSON.parse(localStorage.getItem(key)).status === 'online') {
             let username = key;
             let usernameBlock = document.querySelector('.username');
             usernameBlock.textContent = username;
         }
     }
+}
 }
 
 export {removeButtonLogIn, removeButtonLogOut, showUsername} 
