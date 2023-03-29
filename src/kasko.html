@@ -69,54 +69,7 @@
         <h2 class="title">
             Расчет стоимости страхования (калькулятор) Авто КАСКО
         </h2>
-        <!-- <form action="">
-            <ul class="form__list">
-                <li class="form__item">
-                    <p class="subtitle">
-                        Данные об автомобиле
-                    </p>
-                </li>
-                <li class="form__item">
-                    <p class="subtitle">
-                        Территория действия
-                    </p>
-                </li>
-                <li class="form__item">
-                    <p class="subtitle">
-                        Мультидрайв
-                    </p>
-                </li>
-            </ul>
-            <div class="cost">
-                <p class="subtitle">
-                    Стоимость страхования
-                </p>
-            </div>
-            <ul class="form__choices">
-                <li class="form__choice">
-                    <input type="radio" name="full" id="full">
-                    <label for="full">"Полное каско" без франшиз</label>        
-                </li>
-                <li class="form__choice">
-                    <input type="radio" name="500_from2" id="500_from2">
-                    <label for="500_from2">"КАСКО-Автопрофи с франшизой 500BYN со второго случая"</label>        
-                </li>
-                <li class="form__choice">
-                    <input type="radio" name="500_from1" id="500_from1">
-                    <label for="500_from1">"КАСКО-Автопрофи с франшизой 500BYN с первого случая"</label>        
-                </li>
-                <li class="form__choice">
-                    <input type="radio" name="optim" id="optim">
-                    <label for="optim">"КАСКО-Оптимальное" без франшиз</label>        
-                </li>
-                <li class="form__choice">
-                    <input type="radio" name="pragmatic" id="pragmatic">
-                    <label for="pragmatic">"КАСКО-Прагматик" без франшиз</label>        
-                </li>
-            </ul>
-        </form> -->
-
-        <form class="calculation-form">
+        <form class="calculation-form" action="php/kasko.php" method="post">
             <ol>
                 <li>
             <h3 class="subtitle">
@@ -165,27 +118,27 @@
     </h3>
     <ul class="form__choices list">
         <li class="form__choice">
-            <input type="radio" name="choice" id="full" value="full">
+            <input type="radio" name="cost" id="full" value="full">
             <label for="full">"Полное каско" без франшиз</label>        
             <p class="cost cost_full">500</p>
         </li>
         <li class="form__choice">
-            <input type="radio" name="choice" id="500_from2" value="500_from2">
+            <input type="radio" name="cost" id="500_from2" value="500_from2">
             <label for="500_from2">"КАСКО-Автопрофи с франшизой 500BYN со второго случая"</label>    
             <p class="cost cost_500_from2">400</p>    
         </li>
         <li class="form__choice">
-            <input type="radio" name="choice" id="500_from1" value="500_from1">
+            <input type="radio" name="cost" id="500_from1" value="500_from1">
             <label for="500_from1">"КАСКО-Автопрофи с франшизой 500BYN с первого случая"</label>        
             <p class="cost cost_500_from1">350</p>
         </li>
         <li class="form__choice">
-            <input type="radio" name="choice" id="optim" value="optim">
+            <input type="radio" name="cost" id="optim" value="optim">
             <label for="optim">"КАСКО-Оптимальное" без франшиз</label>        
             <p class="cost cost_optim">250</p>
         </li>
         <li class="form__choice">
-            <input type="radio" name="choice" id="pragmatic" value="pragmatic">
+            <input type="radio" name="cost" id="pragmatic" value="pragmatic">
             <label for="pragmatic">"КАСКО-Прагматик" без франшиз</label>        
             <p class="cost cost_pragmatic">100</p>
         </li>
@@ -194,7 +147,7 @@
         Отправить заявку
     </button>
         </form>
-        <p class="final-cost title">        </p>
+        <p class="final-cost title"></p>
     </article>
     <nav id="mainNav">Nav</nav>
     <div id="siteAds">Ads</div>
