@@ -1,3 +1,5 @@
+import { checkWhoOnline } from "./check-who-online";
+
 let finalCost = document.querySelector('.final-cost');
 let allCosts = document.querySelectorAll('.cost');
 let yearInput = document.querySelector('#age');
@@ -6,8 +8,10 @@ let costInput = document.querySelector('#cost');
 const form = document.querySelector('.calculation-form');
 
 let allValues = [];
+if (allCosts) {
 for (let cost of allCosts){
     allValues.push(+cost.outerText);
+}
 }
 let min = Math.min(...allValues);
 let max = Math.max(...allValues);
@@ -18,11 +22,13 @@ let from1_500 = document.querySelector('.cost_500_from1');
 let from2_500 = document.querySelector('.cost_500_from2');
 let full = document.querySelector('.cost_full');
 
+if (pragmatic) {
 let pragmaticVal = +document.querySelector('.cost_pragmatic').outerText;
 let optimVal = +document.querySelector('.cost_optim').outerText;
 let from1_500Val = +document.querySelector('.cost_500_from1').outerText;
 let from2_500Val = +document.querySelector('.cost_500_from2').outerText;
 let fullVal = +document.querySelector('.cost_full').outerText;
+}
 
 function calculate() {
     showTheCost();
@@ -83,6 +89,20 @@ function selectProgram(){
         finalCost.innerHTML = '$' + document.querySelector(`.cost_${program.id}`).innerText;
       }
     }
-    
+}
+
+let buttonKasko = document.querySelector('.kasko_submit');
+
+if (buttonKasko) {
+buttonKasko.onclick = function() {
+    if (checkWhoOnline !=='Admin') {
+        const programs = document.querySelectorAll('input[name="choice"]');
+        for (const program of programs) {
+          if (program.checked) {
+    localStorage.setItem('program', program.id);
+          }
+    }
+}
+}
 }
 export {calculate}

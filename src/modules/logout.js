@@ -6,7 +6,8 @@ function doLogout(buttonLogOut) {
                 let parsed = JSON.parse(localStorage.getItem(checkWhoOnline()));
                 parsed.status = 'offline';
                 let stringified = JSON.stringify(parsed);
-                localStorage.setItem(checkWhoOnline(), stringified)
+                localStorage.setItem(checkWhoOnline(), stringified);
+                localStorage.removeItem('program');
         }
         location.reload();
     }
