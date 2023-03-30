@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["cost"])) {
+ini_set('display_errors', true);
     $conn = new mysqli("localhost", "root", "root", "testdb3");
     if($conn->connect_error){
         die("Ошибка: " . $conn->connect_error);
@@ -7,8 +7,8 @@ if (isset($_POST["cost"])) {
     $program = $conn->real_escape_string(stristr($_POST["cost"], ' ', true));
     $cost = $conn->real_escape_string(stristr($_POST["cost"], ' '));
     $type = "Kasko";
-    $insuredID = mt_rand(1000);
-    $sql = "INSERT INTO insurance (program, cost, type, insuredID) VALUES ('$program', '$cost', '$type', '$insuredID')";
+    $personID = $conn->real_escape_string($_POST["personID"]);
+    $insuredID = mt_rand(1000, 5000);
     
     $mark = $conn->real_escape_string($_POST["mark"]);
     $model = $conn->real_escape_string($_POST["model"]);
@@ -17,13 +17,14 @@ if (isset($_POST["cost"])) {
     $territory = $conn->real_escape_string($_POST["territory"]);
     $multidrive = $conn->real_escape_string($_POST["multidrive"]);
 
-    $sql2 = "INSERT INTO kasko_objects (insuredID, model, year, obj_cost,territory,multidrive) VALUES ('$insuredID', '$model', '$year', '$obj_cost', '$territory','$multidrive')";
+    $sql = "INSERT INTO insurance (personID, program, cost, type, insuredID) VALUES ( '$personID','$program', '$cost', '$type', '$insuredID')";
+    $sql2 = "INSERT INTO kasko_objects (personID, insuredID, model, year, obj_cost,territory,multidrive) VALUES ('$personID','$insuredID', '$model', '$year', '$obj_cost', '$territory','$multidrive')";
 
-    if($conn->query($sql2)){
+    if($conn->query($sql) && $conn->query($sql2)){
         echo "Данные успешно добавлены";
+        echo stristr($_POST["cost"], ' ', true) . stristr($_POST["cost"], ' ');
     } else{
         echo "Ошибка: " . $conn->error;
     }
     $conn->close();
-}
 ?>

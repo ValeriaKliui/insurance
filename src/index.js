@@ -10,6 +10,7 @@ import { doRegister } from './modules/register'
 import { checkWhoOnline } from './modules/check-who-online'
 import {createAdmin} from './modules/register'
 import {calculate} from './modules/kasko'
+import {show_insurances} from './modules/profile'
 
 if (!localStorage.getItem('Admin')) createAdmin();
 

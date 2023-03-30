@@ -8,6 +8,7 @@ function doLogout(buttonLogOut) {
                 let stringified = JSON.stringify(parsed);
                 localStorage.setItem(checkWhoOnline(), stringified);
                 localStorage.removeItem('program');
+                localStorage.removeItem('personID');
         }
         location.reload();
     }

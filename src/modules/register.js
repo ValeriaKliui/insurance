@@ -19,6 +19,7 @@ function doRegister() {
     if (!localStorage.getItem(name.value)) {
     let user = new User(`${name.value}`, password.value);
     user.addUser();
+    console.log(form)
     form.submit();
     }
     else wrongMessage.hidden = false;

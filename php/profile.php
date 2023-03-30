@@ -1,15 +1,51 @@
-<?php
-    $conn = new mysqli("localhost", "root", "root", "testdb3");
-    if($conn->connect_error){
-        die("Ошибка: " . $conn->connect_error);
-    }
-    $name = $conn->query("SELECT name FROM `users`;");
-    if($conn->query($sql)){
-        echo $name;
-    } else{
-        echo "Ошибка: " . $conn->error;
-    }
-    $conn->close();
-?>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-<!-- https://ru.stackoverflow.com/questions/1046989/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4-%D0%B8%D0%B7-%D0%B1%D0%B0%D0%B7%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%BF%D0%BE-%D0%BD%D0%B0%D0%B6%D0%B0%D1%82%D0%B8%D1%8E-%D0%BD%D0%B0-%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D1%83 -->
+table, td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {text-align: left;}
+</style>
+</head>
+<body>
+
+<?php
+ini_set('display_errors', true);
+
+$q = intval($_GET['q']);
+
+$con = mysqli_connect("localhost", "root", "root", "testdb3");
+if (!$con) {
+    die('Could not connect: ');
+}
+mysqli_select_db($con,"insurance");
+
+$sql="SELECT * FROM insurance WHERE personID = '".$q."'";
+$result = mysqli_query($con,$sql);
+
+echo "<table>
+<tr>
+<th>cost</th>
+<th>type</th>
+<th>program</th>
+</tr>";
+while($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['cost'] . "</td>";
+    echo "<td>" . $row['type'] . "</td>";
+    echo "<td>" . $row['program'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+mysqli_close($con);
+?>
+</body>
+</html>

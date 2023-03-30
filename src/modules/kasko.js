@@ -1,4 +1,5 @@
 import { checkWhoOnline } from "./check-who-online";
+import { checkWhoOnlineID } from "./check-who-onlineID";
 
 let finalCost = document.querySelector('.final-cost');
 let allCosts = document.querySelectorAll('.cost');
@@ -55,7 +56,7 @@ function checkYear(year, optimVal, from1_500Val, from2_500Val, fullVal) {
         else {
             optim.innerHTML = `${optim.inner}`;
             from1_500.innerHTML = `${from1_500Val}`;
-            cost500From2.innerHTML = `${cost500From2Val}`;
+            from2_500.innerHTML = `${from2_500Val}`;
             full.innerHTML = `${fullVal}`;
         }
     }
@@ -94,13 +95,21 @@ let buttonKasko = document.querySelector('.kasko_submit');
 if (buttonKasko) {
     buttonKasko.onclick = function () {
         if (checkWhoOnline !== 'Admin') {
-            const programs = document.querySelectorAll('input[name="choice"]');
+            const programs = document.querySelectorAll('input[name="cost"]');
             for (const program of programs) {
                 if (program.checked) {
-                    program.value = program.value + ' ' + document.querySelector(`.cost_${program.id}`).innerText;
+                    program.value = `${program.value} ${document.querySelector(`.cost_${program.id}`).innerText}`;
                     localStorage.setItem('program', program.id);
                 }
             }
+            localStorage.setItem('personID', checkWhoOnlineID());
+
+            let personIDarea = document.createElement('input');
+            let form = document.querySelector('.calculation-form');
+            form.append(personIDarea);
+            personIDarea.setAttribute("value", checkWhoOnlineID());
+            personIDarea.setAttribute("name", "personID");
+            personIDarea.hidden = true;
         }
     }
 }

@@ -8,7 +8,25 @@
     <link rel="icon" href="img/favicon.png" type="image/png">
 
     <title>Промтрансинвест - страхование будущего</title>
-</head>
+    <script>
+        function showUser(str) {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","php/profile.php?q="+str,true);
+        xmlhttp.send();
+    }
+        </script>
+            </head>
 
 <body>
     <header id="pageHeader" class="header">
@@ -66,9 +84,13 @@
         </form>
     </header>
     <article id="mainArticle">
-       <form action="profile.php" method="post">
-        
-       </form> 
+        <form class="insurances">
+            <select name="users" onchange="showUser(this.value)" class="insurances__select">
+              <option value="">Select a person:</option>
+              <option value="">Peter Griffin</option>
+              </select>
+            </form>
+            <div id="txtHint"><b>Person info will be listed here...</b></div>
     </article>
     <nav id="mainNav">Nav</nav>
     <div id="siteAds">Ads</div>
