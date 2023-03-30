@@ -41,6 +41,10 @@ module.exports = {
       filename: 'kasko.html',
       template: path.resolve(__dirname, 'src', 'kasko.html'),
     }),
+    new HtmlWebpackPlugin({
+      filename: 'profile.html',
+      template: path.resolve(__dirname, 'src', 'profile.html'),
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),

@@ -4,7 +4,7 @@ function redirectAnouthorized() {
 let links = document.querySelectorAll('a');
 if (!checkWhoOnline()) {
     for (let link of links) {
-        if (link.getAttribute('href') === 'profile.html') {
+        if (link.getAttribute('href') === 'profile.html' || link.getAttribute('href') === 'kasko.html') {
             link.setAttribute('href', 'login.html');
         }
     }
