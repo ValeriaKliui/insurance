@@ -11,6 +11,8 @@ import { checkWhoOnline } from './modules/check-who-online'
 import {createAdmin} from './modules/register'
 import {calculate} from './modules/kasko'
 import {show_insurances} from './modules/profile'
+import {toggleAccordion} from './modules/faq'
+
 
 if (!localStorage.getItem('Admin')) createAdmin();
 
@@ -62,3 +64,6 @@ let finalCost = document.querySelector('.final-cost');
 if (finalCost) {
     calculate();
 }
+
+const items = document.querySelectorAll(".accordion button");
+items.forEach(item => item.addEventListener('click', toggleAccordion));

@@ -1,0 +1,101 @@
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+
+.accordion {
+  .accordion-item {
+    margin-bottom: 1em;
+    background-color: $light-color;
+    border-bottom: 1px solid $light-color;
+    button[aria-expanded='true'] {
+        background-color: white;
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0.6em;
+    color: $the-darkest;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: 1px solid $light-border;
+    background: none;
+    outline: none;
+    &:hover, &:focus {
+      cursor: pointer;
+      color: $primary-color;
+      &::after {
+        background-color: white;
+        cursor: pointer;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+      }
+    }
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+    }
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0.6em;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+  button[aria-expanded='true'] {
+    background-color: white;
+    color: $primary-color;
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+    + .accordion-content {
+      opacity: 1;
+      max-height: 29em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+      background-color: white;
+
+    }
+  }
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+  }
+}

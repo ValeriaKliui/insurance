@@ -18,6 +18,7 @@
 }
 
 .header__list {
+    max-width: 12%;
     .header__item {
         display: none;
         padding: 0 10px;
@@ -31,8 +32,9 @@
 }
 
 .header__list:hover {
+    background-color: $the-lightest;
     margin: 0;
-    transform: translateY(100px);
+    transform: translateY(105px);
 
     .header__item {
         transition: all 0.25s ease-in-out;

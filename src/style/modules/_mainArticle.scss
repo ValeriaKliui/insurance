@@ -1,0 +1,31 @@
+@import 'faq.scss';
+
+.family__title {
+    text-align: center;
+}
+.family__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
+    justify-items: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.family__item {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: $main-color;
+    &:hover {
+        background-color: $light-color;
+    }
+}
+
+.family__icon {
+    width: auto;
+    height: 50px;
+}
+.family__text {
+    color: $the-darkest;
+}
