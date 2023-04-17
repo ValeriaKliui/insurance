@@ -25,6 +25,19 @@
         xmlhttp.open("GET","php/profile.php?q="+str,true);
         xmlhttp.send();
     }
+
+    function showData() {
+        let personID = localStorage.getItem('personID');
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("user-data").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","php/show-profile-data.php?q="+personID,true);
+        xmlhttp.send();
+    }
+
         </script>
             </head>
 
@@ -91,15 +104,64 @@
         </form>
     </header>
     <article id="mainArticle">
-        <form class="insurances">
-            <select name="users" onchange="showUser(this.value)" class="insurances__select">
-              <option value="">Select a person:</option>
-              <option value="">Peter Griffin</option>
-              </select>
-            </form>
+        <div class="profile-data hidden">
+        <button class="show-profile-data button" onclick="showData()" >
+            Просмотреть данные
+        </button>
+        <div id="user-data"><b>ИНФА О ЧЕЛЕ</b></div>
+        <button class="edit-profile-data button">
+            Отредактировать данные
+        </button>
+        <form class="hidden" id="profile-form" action="php/profile-data.php" method="post">
+            <h3 class="subtitle">
+                Данные клиента
+            </h3>
+            <label for="surname" class="text">
+                Фамилия
+            </label>
+            <input type="text" id="surname" name="surname">
+            <label for="name" class="text">
+                Имя
+            </label>
+            <input type="text" id="name" name="name">
+            <label for="name" class="text">
+                Отчество
+            </label>
+            <input type="text" id="otchestvo" name="otchestvo">
+            <label for="passport_series" class="text">
+                Серия паспорта
+            </label>
+            <input type="text" id="passport_series" name="passport_series">
+            <label for="passport_number" class="text">
+                Номер паспорта
+            </label>
+            <input type="text" id="passport_number" name="passport_number">
+            <label for="birthday" class="text">
+                Дата рождения
+            </label>
+            <input type="input" id="birthday" name="birthday">
+            <label for="residence" class="text">
+                Гражданство
+            </label>
+            <input type="input" id="residence" name="residence">
+            <button type="submit" class="button">
+                Сохранить данные
+            </button>
+        </form>
+            <form class="insurances">
+                <select name="users" onchange="showUser(this.value)" class="insurances__select">
+                  <option value="">Select a person:</option>
+                  <option value="">Peter Griffin</option>
+                  </select>
+                </form>
             <div id="txtHint"><b>Person info will be listed here...</b></div>
-    </article>
-    <nav id="mainNav">Nav</nav>
+        </div>
+        </article>
+    <nav id="mainNav">
+        <button class="profile__data">
+            Мой профиль
+        </button>
+    </nav>
     <div id="siteAds">Ads</div>
     <footer class="footer" id="pageFooter">
         sd

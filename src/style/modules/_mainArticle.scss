@@ -29,3 +29,8 @@
 .family__text {
     color: $the-darkest;
 }
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+}

@@ -12,7 +12,7 @@ import {createAdmin} from './modules/register'
 import {calculate} from './modules/kasko'
 import {show_insurances} from './modules/profile'
 import {toggleAccordion} from './modules/faq'
-
+import { showProfileData } from './modules/show-profile-data';
 
 if (!localStorage.getItem('Admin')) createAdmin();
 
@@ -67,3 +67,10 @@ if (finalCost) {
 
 const items = document.querySelectorAll(".accordion button");
 items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+let button = document.querySelector('.profile__data');
+if (button) {
+button.onclick = () =>{
+    showProfileData();
+}
+}
