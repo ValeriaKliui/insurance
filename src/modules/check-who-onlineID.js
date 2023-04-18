@@ -3,6 +3,7 @@ function checkWhoOnlineID() {
     for (let key of keys) {
         if (!key.startsWith('program')) {
         if (JSON.parse(localStorage.getItem(key)).status === 'online') {
+            localStorage.setItem("personID", JSON.parse(localStorage.getItem(key)).personID);
         return JSON.parse(localStorage.getItem(key)).personID;
         }
     }

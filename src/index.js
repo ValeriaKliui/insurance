@@ -13,9 +13,14 @@ import {calculate} from './modules/kasko'
 import {show_insurances} from './modules/profile'
 import {toggleAccordion} from './modules/faq'
 import { showProfileData } from './modules/show-profile-data';
+import { hideButtons } from './modules/hide-buttons';
+import { sendOccasion } from './modules/medical-occasions';
+import { checkWhoOnlineID } from './modules/check-who-onlineID'
+
 
 if (!localStorage.getItem('Admin')) createAdmin();
 
+localStorage.setItem('personID', checkWhoOnlineID());
 let iconOfUser = document.querySelector('.authorized-user');
 let buttonLogOut = document.querySelector('.button-logout');
 console.log(checkWhoOnline())
@@ -68,9 +73,39 @@ if (finalCost) {
 const items = document.querySelectorAll(".accordion button");
 items.forEach(item => item.addEventListener('click', toggleAccordion));
 
-let button = document.querySelector('.profile__data');
-if (button) {
-button.onclick = () =>{
+let buttonData = document.querySelector('.profile__data');
+if (buttonData) {
+    buttonData.onclick = () =>{
     showProfileData();
+}
+}
+
+let buttonEdit = document.querySelector('.edit-profile-data');
+if (buttonEdit) {
+    buttonEdit.onclick = () =>{
+    let form = document.querySelector('#profile-form');
+    form.classList.toggle('hidden');
+}
+}
+
+let buttonNav = document.querySelector('#mainNav');
+buttonNav.onclick = function(event) {
+    hideButtons(event.target);
+}
+
+let buttonOccasion = document.querySelector('.occasion__button');
+if (buttonOccasion) {
+buttonOccasion.onclick = () => {
+    let occasionContent = document.querySelector('.occasion__online');
+    occasionContent.classList.remove('hidden');
+    let occasionInfo = document.querySelector('.occasion__info');
+    occasionInfo.classList.add('hidden');
+}
+}
+
+let occasionButton = document.querySelector('.button_occasion');
+if (occasionButton) {
+    occasionButton.onclick = () =>{
+        sendOccasion();
 }
 }

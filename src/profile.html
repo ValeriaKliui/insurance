@@ -10,36 +10,36 @@
     <title>Промтрансинвест - страхование будущего</title>
     <script>
         function showUser(str) {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtHint").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "php/profile.php?q=" + str, true);
+            xmlhttp.send();
         }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","php/profile.php?q="+str,true);
-        xmlhttp.send();
-    }
 
-    function showData() {
-        let personID = localStorage.getItem('personID');
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("user-data").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","php/show-profile-data.php?q="+personID,true);
-        xmlhttp.send();
-    }
+        function showData() {
+            let personID = localStorage.getItem('personID');
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("user-data").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "php/show-profile-data.php?q=" + personID, true);
+            xmlhttp.send();
+        }
 
-        </script>
-            </head>
+    </script>
+</head>
 
 <body>
     <header id="pageHeader" class="header">
@@ -83,7 +83,7 @@
                 </a>
             </li>
         </ul>
-                <div class="authorized-user">
+        <div class="authorized-user">
             <a href="profile.html">
                 <p class="username"></p>
             </a>
@@ -104,62 +104,203 @@
         </form>
     </header>
     <article id="mainArticle">
+
+        <div class="family profile__services">
+            <p class="subtitle family__title">
+                Оформить договор
+            </p>
+            <div class="family__container">
+                <div class="family__item">
+                    <img src="../src/img/car.png" alt="" class="family__icon">
+                    <p class="subtitle">
+                        КАСКО
+                    </p>
+                    <p class="text family__text">
+                        Защитите Ваш автомобиль!
+                    </p>
+                    <form action="kasko.html">
+                        <button class="button">
+                            Оформить
+                        </button>
+                    </form>
+                </div>
+                <div class="family__item">
+                    <img src="../src/img/health.png" alt="" class="family__icon">
+                    <p class="subtitle">
+                        Здоровье
+                    </p>
+                    <p class="text family__text">
+                        Позаботьтесь о самых близких
+                    </p>
+                </div>
+                <div class="family__item">
+                    <img src="../src/img/house.png" alt="" class="family__icon">
+                    <p class="subtitle">
+                        Имущество
+                    </p>
+                    <p class="text family__text">
+                        Застрахуйтесь от любой погоды в доме!
+                    </p>
+                </div>
+                <div class="family__item">
+                    <img src="../src/img/complex.png" alt="" class="family__icon">
+                    <p class="subtitle">
+                        Комплексное страхование
+                    </p>
+                </div>
+                <div class="family__item">
+                    <img src="../src/img/responsibility.png" alt="" class="family__icon">
+                    <p class="subtitle">
+                        Ответственность
+                    </p>
+                    <p class="text family__text">
+                        Сохраните добрые отношения с соседями!
+                    </p>
+                </div>
+                <div class="family__item">
+                    <img src="../src/img/travellings.png" alt="" class="family__icon">
+                    <p class="subtitle">
+                        Поездки
+                    </p>
+                    <p class="text family__text">
+                        Наслаждайтесь отпуском вместе с ЗАСО Промтрансинвест!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
         <div class="profile-data hidden">
-        <button class="show-profile-data button" onclick="showData()" >
-            Просмотреть данные
-        </button>
-        <div id="user-data"><b>ИНФА О ЧЕЛЕ</b></div>
-        <button class="edit-profile-data button">
-            Отредактировать данные
-        </button>
-        <form class="hidden" id="profile-form" action="php/profile-data.php" method="post">
-            <h3 class="subtitle">
-                Данные клиента
-            </h3>
-            <label for="surname" class="text">
-                Фамилия
-            </label>
-            <input type="text" id="surname" name="surname">
-            <label for="name" class="text">
-                Имя
-            </label>
-            <input type="text" id="name" name="name">
-            <label for="name" class="text">
-                Отчество
-            </label>
-            <input type="text" id="otchestvo" name="otchestvo">
-            <label for="passport_series" class="text">
-                Серия паспорта
-            </label>
-            <input type="text" id="passport_series" name="passport_series">
-            <label for="passport_number" class="text">
-                Номер паспорта
-            </label>
-            <input type="text" id="passport_number" name="passport_number">
-            <label for="birthday" class="text">
-                Дата рождения
-            </label>
-            <input type="input" id="birthday" name="birthday">
-            <label for="residence" class="text">
-                Гражданство
-            </label>
-            <input type="input" id="residence" name="residence">
-            <button type="submit" class="button">
-                Сохранить данные
+            <button class="show-profile-data button" onclick="showData()">
+                Просмотреть данные
             </button>
-        </form>
+            <div id="user-data"><b>ИНФА О ЧЕЛЕ</b></div>
+            <button class="edit-profile-data button">
+                Отредактировать данные
+            </button>
+            <form class="hidden" id="profile-form" action="php/profile-data.php" method="post">
+                <h3 class="subtitle">
+                    Данные клиента
+                </h3>
+                <label for="surname" class="text">
+                    Фамилия
+                </label>
+                <input type="text" id="surname" name="surname">
+                <label for="name" class="text">
+                    Имя
+                </label>
+                <input type="text" id="name" name="name">
+                <label for="name" class="text">
+                    Отчество
+                </label>
+                <input type="text" id="otchestvo" name="otchestvo">
+                <label for="passport_series" class="text">
+                    Серия паспорта
+                </label>
+                <input type="text" id="passport_series" name="passport_series">
+                <label for="passport_number" class="text">
+                    Номер паспорта
+                </label>
+                <input type="text" id="passport_number" name="passport_number">
+                <label for="birthday" class="text">
+                    Дата рождения
+                </label>
+                <input type="input" id="birthday" name="birthday">
+                <label for="residence" class="text">
+                    Гражданство
+                </label>
+                <input type="input" id="residence" name="residence">
+                <button type="submit" class="button">
+                    Сохранить данные
+                </button>
+            </form>
             <form class="insurances">
                 <select name="users" onchange="showUser(this.value)" class="insurances__select">
-                  <option value="">Select a person:</option>
-                  <option value="">Peter Griffin</option>
-                  </select>
-                </form>
+                    <option value="">Select a person:</option>
+                    <option value="">Peter Griffin</option>
+                </select>
+            </form>
             <div id="txtHint"><b>Person info will be listed here...</b></div>
         </div>
-        </article>
+
+        <div class="profile__occasion hidden">
+            <h3 class="subtitle">
+                Страховой случай
+            </h3>
+            <p class="text">
+                Чтобы вы не растерялись в случае наступления страхового случая, мы подготовили пошаговое описание действий. Просто выберите свою ситуацию и следуйте инструкциям.
+            </p>
+            <div class="family profile__services">
+                <div class="family__container">
+                    <div class="family__item">
+                        <img src="../src/img/car.png" alt="" class="family__icon">
+                        <p class="subtitle">
+                            Оказание медпомощи в Беларуси
+                        </p>
+                        <p class="text family__text">
+                            Если вам необходима медицинская помощь и вы собираетесь к врачу или уже были у него и хотите получить возмещение.
+                        </p>
+                        <form action="service-med.html">
+                            <button class="button">
+                                Перейти
+                            </button>
+                        </form>
+                    </div>
+                    <div class="family__item">
+                        <img src="../src/img/health.png" alt="" class="family__icon">
+                        <p class="subtitle">
+                            Здоровье
+                        </p>
+                        <p class="text family__text">
+                            Позаботьтесь о самых близких
+                        </p>
+                    </div>
+                    <div class="family__item">
+                        <img src="../src/img/house.png" alt="" class="family__icon">
+                        <p class="subtitle">
+                            Имущество
+                        </p>
+                        <p class="text family__text">
+                            Застрахуйтесь от любой погоды в доме!
+                        </p>
+                    </div>
+                    <div class="family__item">
+                        <img src="../src/img/complex.png" alt="" class="family__icon">
+                        <p class="subtitle">
+                            Комплексное страхование
+                        </p>
+                    </div>
+                    <div class="family__item">
+                        <img src="../src/img/responsibility.png" alt="" class="family__icon">
+                        <p class="subtitle">
+                            Ответственность
+                        </p>
+                        <p class="text family__text">
+                            Сохраните добрые отношения с соседями!
+                        </p>
+                    </div>
+                    <div class="family__item">
+                        <img src="../src/img/travellings.png" alt="" class="family__icon">
+                        <p class="subtitle">
+                            Поездки
+                        </p>
+                        <p class="text family__text">
+                            Наслаждайтесь отпуском вместе с ЗАСО Промтрансинвест!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
     <nav id="mainNav">
+        <button class="profile__services">
+            Услуги
+        </button>
         <button class="profile__data">
             Мой профиль
+        </button>
+        <button class="profile__occasion">
+            Страховой случай
         </button>
     </nav>
     <div id="siteAds">Ads</div>
