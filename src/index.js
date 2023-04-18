@@ -100,6 +100,7 @@ buttonOccasion.onclick = () => {
     occasionContent.classList.remove('hidden');
     let occasionInfo = document.querySelector('.occasion__info');
     occasionInfo.classList.add('hidden');
+    sendOccasion();
 }
 }
 
