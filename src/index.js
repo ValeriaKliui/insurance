@@ -110,3 +110,49 @@ if (occasionButton) {
         sendOccasion();
 }
 }
+
+let travelForm = document.querySelector('.country_input');
+if (travelForm) {
+travelForm.oninput = () =>{
+    if (!document.querySelector('.person_id')) {
+        let personIDarea = document.createElement('input');
+        personIDarea.classList.add('person_id');
+        let form = document.querySelector('.travel-form');
+        form.append(personIDarea);
+        personIDarea.setAttribute("value", checkWhoOnlineID());
+        personIDarea.setAttribute("name", "personID");
+        personIDarea.hidden = true;
+        }    
+}
+}
+
+let propertyForm = document.querySelector('.property_input');
+if (propertyForm) {
+    propertyForm.oninput = () =>{
+    if (!document.querySelector('.person_id')) {
+        let personIDarea = document.createElement('input');
+        personIDarea.classList.add('person_id');
+        let form = document.querySelector('.property-form');
+        form.append(personIDarea);
+        personIDarea.setAttribute("value", checkWhoOnlineID());
+        personIDarea.setAttribute("name", "personID");
+        personIDarea.hidden = true;
+        }    
+}
+}
+
+
+let healthForm = document.querySelector('.health_input');
+if (healthForm) {
+    healthForm.oninput = () =>{
+    if (!document.querySelector('.person_id')) {
+        let personIDarea = document.createElement('input');
+        personIDarea.classList.add('person_id');
+        let form = document.querySelector('.health-form');
+        form.append(personIDarea);
+        personIDarea.setAttribute("value", checkWhoOnlineID());
+        personIDarea.setAttribute("name", "personID");
+        personIDarea.hidden = true;
+        }    
+}
+}

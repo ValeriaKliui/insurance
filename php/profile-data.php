@@ -9,18 +9,40 @@ if (isset($_POST["surname"])) {
     $sql="SELECT * FROM users_data WHERE personID = '".$personID."'";
     $result = mysqli_query($conn,$sql);
     if($row = mysqli_fetch_array($result)) {
-            $surname = $conn->real_escape_string($_POST["surname"]);
+        $surname = $conn->real_escape_string($_POST["surname"]);
+        if (!is_null($surname)) {
+            $sql = "UPDATE users_data set surname = '$surname' where personID = '$personID'";
+            $conn->query($sql);
+        }
     $name = $conn->real_escape_string($_POST["name"]);
+    if (!is_null($name)) {
+        $sql1 = "UPDATE users_data set name = '$name' where personID = '$personID'";
+        $conn->query($sql1);
+    }
     $otchestvo = $conn->real_escape_string($_POST["otchestvo"]);
+    if (!is_null($otchestvo)) {
+        $sql2 = "UPDATE users_data set otchestvo = '$otchestvo' where personID = '$personID'";
+        $conn->query($sql2);
+    }
     $passport_series = $conn->real_escape_string($_POST["passport_series"]);
+    if (!is_null($passport_series)) {
+        $sql3 = "UPDATE users_data set passport_series = '$passport_series' where personID = '$personID'";
+        $conn->query($sql3);
+    }
     $passport_number = $conn->real_escape_string($_POST["passport_number"]);
+    if (!is_null($passport_number)) {
+        $sql4 = "UPDATE users_data set passport_number = '$passport_number' where personID = '$personID'";
+        $conn->query($sql4);
+    }
     $birthday = $conn->real_escape_string($_POST["birthday"]);
+    if (!is_null($birthday)) {
+        $sql5 = "UPDATE users_data set birthday = '$birthday' where personID = '$personID'";
+        $conn->query($sql5);
+    }
     $residence = $conn->real_escape_string($_POST["residence"]);
-    $sql = "UPDATE users_data set surname = '$surname', name = '$name',otchestvo = '$otchestvo', passport_series = '$passport_series', passport_number = '$passport_number', residence =  '$residence' where personID = '$personID'";
-    if($conn->query($sql)){
-        echo "Данные успешно обновлены";
-    } else{
-        echo "Ошибка: " . $conn->error;
+    if (!is_null($residence)) {
+        $sql6 = "UPDATE users_data set residence = '$residence' where personID = '$personID'";
+        $conn->query($sql6);
     }
     }
     else {

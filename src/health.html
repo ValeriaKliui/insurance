@@ -74,95 +74,62 @@
     </header>
     <article id="mainArticle">
         <h2 class="title">
-            Расчет стоимости страхования для выезжающих за границу
+            Расчет стоимости страхования жизни
         </h2>
-        <!-- <form class="travel-form" onsubmit="php/travel.php" method="post">
+        <h3 class="subtitle">
+            От каких рисков защищает страховка:
+        </h3>
+        <ul>
+            <li>
+                Впервые диагностированные заболевания
+            </li>
+            <li>
+                Спортивные и бытовые травмы
+            </li>
+            <li>
+                Острые отравления
+            </li>
+            <li>
+                Обморожения и ожоги
+            </li>
+            <li>
+                Удар электрическим током или молнией
+            </li>
+            <li>
+                Укусы животных
+            </li>
+            <li>
+                Анафилактический шок, асфиксия (удушение)
+            </li>
+            <li>
+                Установление группы инвалидности или смерть вследствие выше перечисленных травм или заболеваний
+            </li>
+        </ul>
+        <form class="health-form" action="php/health.php" method="post">
             <ol>
                 <li>
-            <h3 class="subtitle">
-                Данные о поездке
-            </h3>
-            <div>
-                <div>
-            <label for="country" class="text">
-                Куда едете?
-            </label>
-            <input type="text" class="country_input" id="country" name="country">
-        </div>
-        </div>
-    </li> -->
-    <!-- <li>
-        <h3 class="subtitle">
-            Страховая сумма
-        </h3>        
-        <input type="range" name="sum" id="sum" min="30000" max="90000">
-    </li> -->
-    <!-- <li>
-        <h3 class="subtitle">
-            Дата поездки
-        </h3>        
-        <input type="text" id="date" name="date">
-    </li> -->
-    <!-- <li>
-        <h3 class="subtitle">
-            Ваша поездка предполагает
-        </h3>        
-
-        <input type="radio" name="type_of_relax" id="none" value="none">
-        <label for="none">Отсутствие активного и экстремального отдыха</label>        
-
-        <input type="radio" name="type_of_relax" id="active" value="active">
-        <label for="active">Активный отдых</label>    
-
-        <input type="radio" name="type_of_relax" id="extreme" value="extreme">
-        <label for="extreme">Экстремальный отдых</label>    
-    </li>-->
-    <!-- </ol>  
-    <button class="travel_submit" type="submit">
-        Отправить заявку
-    </button>
-        </form> -->
-
-        <form class="travel-form" action="php/travel.php" method="post">
-            <ol>
+                    <h3 class="subtitle">
+                        Данные о случае
+                    </h3>
+                    <label for="health" class="text">
+                        Какой вред здоровью нанесен?
+                    </label>
+                    <input type="text" class="health_input" id="health" name="health">
+                </li>
+                </li>
                 <li>
-            <h3 class="subtitle">
-                Данные о поездке
-            </h3>
-            <label for="country" class="text">
-                Куда едете?
-            </label>
-            <input type="text" class="country_input" id="country" name="country">
-</li>  
-</li>
-<li>
-    <h3 class="subtitle">
-        Страховая сумма
-    </h3>        
-    <input type="range" name="sum" id="sum" min="30000" max="90000">
-</li> 
- <li>
-    <h3 class="subtitle">
-        Дата поездки
-    </h3>        
-    <input type="text" id="date" name="date">
-</li> 
- <li>
-    <h3 class="subtitle">
-        Ваша поездка предполагает
-    </h3>        
-
-    <input type="radio" name="type_of_relax" id="none" value="none">
-    <label for="none">Отсутствие активного и экстремального отдыха</label>        
-
-    <input type="radio" name="type_of_relax" id="active" value="active">
-    <label for="active">Активный отдых</label>    
-
-    <input type="radio" name="type_of_relax" id="extreme" value="extreme">
-    <label for="extreme">Экстремальный отдых</label>    
-</li>
-
- </ol>
+                    <h3 class="subtitle">
+                        Страховая сумма
+                    </h3>
+                    <input type="range" name="sum" id="sum" min="30000" max="90000">
+                </li>
+                <li>
+                    <h3 class="subtitle">
+                        Дата случая
+                    </h3>
+                    <input type="text" id="date" name="date">
+                </li>
+                     </ol>
             <button class="button" type="submit">Отправить</button>
         </form>
         <p class="title"></p>
@@ -174,4 +141,5 @@
     </footer>
 </body>
 </body>
+
 </html>

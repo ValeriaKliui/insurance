@@ -74,94 +74,39 @@
     </header>
     <article id="mainArticle">
         <h2 class="title">
-            Расчет стоимости страхования для выезжающих за границу
+            Расчет стоимости страхования по программам «Мой дом», «Моя квартира», «Моя дача»
         </h2>
-        <!-- <form class="travel-form" onsubmit="php/travel.php" method="post">
+        <form class="property-form" action="php/property.php" method="post">
             <ol>
                 <li>
-            <h3 class="subtitle">
-                Данные о поездке
-            </h3>
-            <div>
-                <div>
-            <label for="country" class="text">
-                Куда едете?
-            </label>
-            <input type="text" class="country_input" id="country" name="country">
-        </div>
-        </div>
-    </li> -->
-    <!-- <li>
-        <h3 class="subtitle">
-            Страховая сумма
-        </h3>        
-        <input type="range" name="sum" id="sum" min="30000" max="90000">
-    </li> -->
-    <!-- <li>
-        <h3 class="subtitle">
-            Дата поездки
-        </h3>        
-        <input type="text" id="date" name="date">
-    </li> -->
-    <!-- <li>
-        <h3 class="subtitle">
-            Ваша поездка предполагает
-        </h3>        
-
-        <input type="radio" name="type_of_relax" id="none" value="none">
-        <label for="none">Отсутствие активного и экстремального отдыха</label>        
-
-        <input type="radio" name="type_of_relax" id="active" value="active">
-        <label for="active">Активный отдых</label>    
-
-        <input type="radio" name="type_of_relax" id="extreme" value="extreme">
-        <label for="extreme">Экстремальный отдых</label>    
-    </li>-->
-    <!-- </ol>  
-    <button class="travel_submit" type="submit">
-        Отправить заявку
-    </button>
-        </form> -->
-
-        <form class="travel-form" action="php/travel.php" method="post">
-            <ol>
+                    <h3 class="subtitle">
+                        Какое недвижимое имущество подлежит страхованию?
+                    </h3>        
+                
+                    <input type="radio" name="type_of_property" id="flat" value="flat">
+                    <label for="flat">Отсутствие активного и экстремального отдыха</label>        
+                
+                    <input type="radio" name="type_of_property" id="house" value="house">
+                    <label for="house">Активный отдых</label>    
+                
+                    <input type="radio" name="type_of_property" id="cottage" value="cottage">
+                    <label for="cottage">Экстремальный отдых</label>    
+                </li>   
+                <li>
+                    <h3 class="subtitle">
+                        Страховая сумма
+                    </h3>        
+                    <input type="range" name="sum" id="sum" min="30000" max="90000">
+                </li>              
                 <li>
             <h3 class="subtitle">
-                Данные о поездке
+                Данные об имуществе
             </h3>
-            <label for="country" class="text">
-                Куда едете?
+            <label for="address" class="text">
+                Адрес
             </label>
-            <input type="text" class="country_input" id="country" name="country">
+            <input type="text" class="property_input" id="address" name="address">
 </li>  
-</li>
-<li>
-    <h3 class="subtitle">
-        Страховая сумма
-    </h3>        
-    <input type="range" name="sum" id="sum" min="30000" max="90000">
-</li> 
- <li>
-    <h3 class="subtitle">
-        Дата поездки
-    </h3>        
-    <input type="text" id="date" name="date">
-</li> 
- <li>
-    <h3 class="subtitle">
-        Ваша поездка предполагает
-    </h3>        
-
-    <input type="radio" name="type_of_relax" id="none" value="none">
-    <label for="none">Отсутствие активного и экстремального отдыха</label>        
-
-    <input type="radio" name="type_of_relax" id="active" value="active">
-    <label for="active">Активный отдых</label>    
-
-    <input type="radio" name="type_of_relax" id="extreme" value="extreme">
-    <label for="extreme">Экстремальный отдых</label>    
-</li>
-
  </ol>
             <button class="button" type="submit">Отправить</button>
         </form>
