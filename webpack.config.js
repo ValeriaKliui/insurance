@@ -65,6 +65,14 @@ module.exports = {
       filename: 'health.html',
       template: path.resolve(__dirname, 'src', 'health.html'),
     }),
+    new HtmlWebpackPlugin({
+      filename: 'Admin_profile.html',
+      template: path.resolve(__dirname, 'src', 'Admin_profile.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'Admin_service-med.html',
+      template: path.resolve(__dirname, 'src', 'Admin_service-med.html'),
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),

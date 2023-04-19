@@ -16,11 +16,13 @@ import { showProfileData } from './modules/show-profile-data';
 import { hideButtons } from './modules/hide-buttons';
 import { sendOccasion } from './modules/medical-occasions';
 import { checkWhoOnlineID } from './modules/check-who-onlineID'
-
+import { redirectAdmin } from './modules/redirect-admin';
 
 if (!localStorage.getItem('Admin')) createAdmin();
 
+if (localStorage.length>1) {
 localStorage.setItem('personID', checkWhoOnlineID());
+}
 let iconOfUser = document.querySelector('.authorized-user');
 let buttonLogOut = document.querySelector('.button-logout');
 console.log(checkWhoOnline())
@@ -155,4 +157,8 @@ if (healthForm) {
         personIDarea.hidden = true;
         }    
 }
+}
+
+if (checkWhoOnline() === 'Admin') {
+    redirectAdmin();
 }
