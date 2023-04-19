@@ -162,3 +162,9 @@ if (healthForm) {
 if (checkWhoOnline() === 'Admin') {
     redirectAdmin();
 }
+
+
+let changeStatusButton = document.querySelector('.change-status_button');
+if (changeStatusButton) {
+    changeStatus();
+}

@@ -26,7 +26,7 @@
                     document.getElementById("undone").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET", "php/Admin_showundone.php?q=" + 'Обработано', true);
+            xmlhttp.open("GET", "php/Admin_showdone.php?q=" + 'Обработано', true); //сделаь так чтобы выводилось все остальное
             xmlhttp.send();
         }
 
@@ -103,7 +103,7 @@
         </div>
         <p class="" id="undone"></p>
 
-        <button class="show-profile-data button" onclick="showDone()">
+        <button class="show-profile-data button form_change-status" onclick="showDone()">
             Просмотреть обработанные заявления
         </button>
             </div>
