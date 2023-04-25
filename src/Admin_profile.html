@@ -9,32 +9,15 @@
 
     <title>Промтрансинвест - страхование будущего</title>
     <script>
-        function showUser(str) {
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("txtHint").innerHTML = this.responseText;
-                }
-            };
-            xmlhttp.open("GET", "php/profile.php?q=" + str, true);
-            xmlhttp.send();
-        }
-
         function showData() {
-            let personID = localStorage.getItem('personID');
+            let personSurname = document.querySelector('.person-surname');
             xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("user-data").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET", "php/show-profile-data.php?q=" + personID, true);
+            xmlhttp.open("GET", "php/Admin__show-profile-data.php?q=" + personSurname.value, true);
             xmlhttp.send();
         }
 
@@ -96,7 +79,7 @@
             </svg>
             <p class="subtitle">128</p>
         </div>
-        <button class="button button-logout"> Log out </button>
+        <button class="button button-logout"> Выйти </button>
         <form action="login.html" class="button-login">
             <button class="button button-login">
                 войти
@@ -116,9 +99,9 @@
                         КАСКО
                     </p>
                     <p class="text family__text">
-                        Защитите Ваш автомобиль!
+                        
                     </p>
-                    <form action="kasko.html">
+                    <form action="Admin_kasko.html">
                         <button class="button">
                             Оформить
                         </button>
@@ -130,9 +113,8 @@
                         Здоровье
                     </p>
                     <p class="text family__text">
-                        Позаботьтесь о самых близких
                     </p>
-                    <form action="health.html">
+                    <form action="Admin_health.html">
                         <button class="button property_button">
                             Оформить
                         </button>
@@ -144,9 +126,8 @@
                         Имущество
                     </p>
                     <p class="text family__text">
-                        Застрахуйтесь от любой погоды в доме!
                     </p>
-                    <form action="property.html">
+                    <form action="Admin_property.html">
                         <button class="button property_button">
                             Оформить
                         </button>
@@ -158,9 +139,8 @@
                         Поездки
                     </p>
                     <p class="text family__text">
-                        Наслаждайтесь отпуском вместе с ЗАСО Промтрансинвест!
                     </p>
-                    <form action="travel.html">
+                    <form action="Admin_travel.html">
                         <button class="button travel_button">
                             Оформить
                         </button>
@@ -171,60 +151,17 @@
 
 
         <div class="profile-data hidden">
+            <div class="admin__profile-data">
+            <input type="text" id="surname" name="surname" class="person-surname" placeholder="Введите фамилию">
             <button class="show-profile-data button" onclick="showData()">
                 Просмотреть данные
             </button>
-            <div id="user-data"><b>ИНФА О ЧЕЛЕ</b></div>
-            <button class="edit-profile-data button">
-                Отредактировать данные
-            </button>
-            <form class="hidden" id="profile-form" action="php/profile-data.php" method="post">
-                <h3 class="subtitle">
-                    Данные клиента
-                </h3>
-                <label for="surname" class="text">
-                    Фамилия
-                </label>
-                <input type="text" id="surname" name="surname">
-                <label for="name" class="text">
-                    Имя
-                </label>
-                <input type="text" id="name" name="name">
-                <label for="name" class="text">
-                    Отчество
-                </label>
-                <input type="text" id="otchestvo" name="otchestvo">
-                <label for="passport_series" class="text">
-                    Серия паспорта
-                </label>
-                <input type="text" id="passport_series" name="passport_series">
-                <label for="passport_number" class="text">
-                    Номер паспорта
-                </label>
-                <input type="text" id="passport_number" name="passport_number">
-                <label for="birthday" class="text">
-                    Дата рождения
-                </label>
-                <input type="input" id="birthday" name="birthday">
-                <label for="residence" class="text">
-                    Гражданство
-                </label>
-                <input type="input" id="residence" name="residence">
-                <button type="submit" class="button">
-                    Сохранить данные
-                </button>
-            </form>
-            <form class="insurances">
-                <select name="users" onchange="showUser(this.value)" class="insurances__select">
-                    <option value="">Select a person:</option>
-                    <option value="">Peter Griffin</option>
-                </select>
-            </form>
-            <div id="txtHint"><b>Person info will be listed here...</b></div>
+        </div>
+            <div id="user-data"><b></b></div>
         </div>
 
         <div class="profile__occasion hidden">
-            <h3 class="subtitle">
+            <h3 class="subtitle profile__subtitle">
                 Заявления
             </h3>
             <div class="family profile__services">
@@ -256,17 +193,16 @@
         </div>
     </article>
     <nav id="mainNav">
-        <button class="profile__services">
-            Услуги
+        <button class="button profile__services">
+            Оформление договора
         </button>
-        <button class="profile__data">
-            Мой профиль
+        <button class="button profile__data">
+            Договоры
         </button>
-        <button class="profile__occasion">
-            Страховой случай
+        <button class="button profile__occasion">
+            Заявления
         </button>
     </nav>
-    <div id="siteAds">Ads</div>
     <footer class="footer" id="pageFooter">
         sd
     </footer>

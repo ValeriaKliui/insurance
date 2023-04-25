@@ -50,3 +50,11 @@
 .contacts {
     @include flex_space-between;
 }
+.username {
+    font-size: 16px;
+    font-family: 'Stem Light', Arial, Helvetica, sans-serif;
+    color: $primary-color;
+}
+.authorized-user a {
+    text-decoration: none;
+}

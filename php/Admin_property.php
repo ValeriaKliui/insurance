@@ -4,24 +4,24 @@ require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
 ini_set('display_errors', true);
-if (isset($_POST["health"])) {
+if (isset($_POST["type_of_property"])) {
     $conn = new mysqli("localhost", "f0810445_root", "root", "f0810445_testdb3");
     if($conn->connect_error){
         die("Ошибка: " . $conn->connect_error);
     }
     // $cost = $conn->real_escape_string(stristr($_POST["cost"], ' ')); - РАССЧИАТТЬ ЦЕНУ
     $cost = "РАССЧИТАТЬ";
-    $type = "Health";
+    $type = "Property";
     $Admin = 'Admin';
 
     $personID = $conn->real_escape_string($_POST["personID"]);
-    $health = $conn->real_escape_string($_POST["health"]);
+    $type_of_property = $conn->real_escape_string($_POST["type_of_property"]);
     $insuredID = mt_rand(1000, 5000);
     $sum = $conn->real_escape_string($_POST["sum"]);
-    $date = $conn->real_escape_string($_POST["date"]);
+    $address = $conn->real_escape_string($_POST["address"]);
 
-    $sql = "INSERT INTO DMS (personID, health, insuredID, sum,date) VALUES ('$personID', '$health',  '$insuredID', '$sum', '$date')";
-    $sql2 = "INSERT INTO insurance (Admin, personID, cost, type, insuredID) VALUES ('$Admin',  '$personID', '$cost', '$type', '$insuredID')";
+    $sql = "INSERT INTO property (personID, type_of_property, insuredID, sum,address) VALUES ('$personID', '$type_of_property', '$insuredID', '$sum', '$address')";
+    $sql2 = "INSERT INTO insurance (Admin, personID, cost, type, insuredID) VALUES ( '$Admin', '$personID', '$cost', '$type', '$insuredID')";
 
     if($conn->query($sql) && $conn->query($sql2)){
         echo "Данные успешно добавлены";
@@ -29,8 +29,9 @@ if (isset($_POST["health"])) {
         echo "Ошибка: " . $conn->error;
     }
     $conn->close();
-    
-    $title = "Договор ЗАСО 'Промтрансинвест'";
+}
+
+$title = "Договор ЗАСО 'Промтрансинвест'";
 $body = "<table style='width: 100%;'>
 <p>
 Договор успешно заключен. </p>
@@ -42,6 +43,8 @@ $body = "<table style='width: 100%;'>
 <p> www.promtransinvest.by </p>
 $body</table>";
 $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+
 try {
     $mail->isSMTP();
     $mail->CharSet = "UTF-8";
@@ -58,9 +61,9 @@ try {
   
     // Получатель письма
     $mail->addAddress('valeria14003@gmail.com');
-    $text = '<p>Добрый день.</p>' . $personID;
-    file_put_contents(  'applic.html', $text);
-
+    file_put_contents(  'applic.html', '<p><b>slkdjsldjdslflsf</b></p>');
+  
+  
     // Прикрипление файлов к письму
     $mail->addAttachment('applic.html');
   
@@ -73,5 +76,5 @@ try {
   } catch (Exception $e) {
     $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
   }  
-}
+
 ?>

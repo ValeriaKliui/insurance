@@ -14,7 +14,7 @@ if (isset($_POST["health"])) {
     $type = "Health";
     $Admin = 'Admin';
 
-    $personID = $conn->real_escape_string($_POST["personID"]);
+    $personID =mt_rand(1000, 5000);
     $health = $conn->real_escape_string($_POST["health"]);
     $insuredID = mt_rand(1000, 5000);
     $sum = $conn->real_escape_string($_POST["sum"]);
@@ -23,7 +23,18 @@ if (isset($_POST["health"])) {
     $sql = "INSERT INTO DMS (personID, health, insuredID, sum,date) VALUES ('$personID', '$health',  '$insuredID', '$sum', '$date')";
     $sql2 = "INSERT INTO insurance (Admin, personID, cost, type, insuredID) VALUES ('$Admin',  '$personID', '$cost', '$type', '$insuredID')";
 
-    if($conn->query($sql) && $conn->query($sql2)){
+    $surname = $conn->real_escape_string($_POST["surname"]);
+    $name = $conn->real_escape_string($_POST["name"]);
+    $otchestvo = $conn->real_escape_string($_POST["otchestvo"]);
+    $passport_series = $conn->real_escape_string($_POST["passport_series"]);
+    $passport_number = $conn->real_escape_string($_POST["passport_number"]);
+    $birthday = $conn->real_escape_string($_POST["birthday"]);
+    $residence = $conn->real_escape_string($_POST["residence"]);
+
+    $sql3 = "INSERT INTO users_data ($Admin, personID, surname, name, otchestvo, passport_series, passport_number, residence) VALUES ('$Admin','$personID', '$surname', '$name', '$otchestvo', '$passport_series', '$passport_number', '$residence')";    
+
+
+    if($conn->query($sql) && $conn->query($sql2) && $conn->query($sql3)){
         echo "Данные успешно добавлены";
     } else{
         echo "Ошибка: " . $conn->error;

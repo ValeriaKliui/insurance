@@ -23,7 +23,7 @@ ini_set('display_errors', true);
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect("localhost", "root", "root", "testdb3");
+$con = mysqli_connect("localhost", "f0810445_root", "root", "f0810445_testdb3");
 if (!$con) {
     die('Could not connect: ');
 }

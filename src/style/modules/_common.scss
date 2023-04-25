@@ -16,20 +16,29 @@ html {
 
 .text {
     @include font('Stem Light', 16px);
+    font-size: 16px;
+    font-family: 'Stem Light', Arial, Helvetica, sans-serif;
 }
 
 .subtitle {
     @include font('Stem Regular', 20px);
+    font-size: 20px;
+    font-family: 'Stem Regular', Arial, Helvetica, sans-serif;
 }
 
 .title {
     @include font('Stem Bold', 24px);
+    font-size: 24px;
+    font-family: 'Stem Bold', Arial, Helvetica, sans-serif;
     color: $main-color;
 }
 
 .button {
+    max-width: 305px;
+    min-width: 200px;
     text-align: center;
-    @include font('Stem Regular', 20px);
+    font-size: 20px;
+    font-family: 'Stem Regular', Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     cursor: pointer;
     color: #fff;
@@ -49,12 +58,11 @@ body {
     display: grid;
     grid-template-areas:
         "header header header"
-        "nav article ads"
-        "nav footer footer";
+        "nav article article"
+        "footer footer footer";
     grid-template-rows: 80px 1fr 70px;
-    grid-template-columns: 20% 1fr 15%;
-    grid-row-gap: 10px;
-    grid-column-gap: 10px;
+    grid-template-columns: 15% 1fr 15%;
+    grid-column-gap: 5px;
     height: 100vh;
     margin: 0;
 }
@@ -69,6 +77,10 @@ body {
 
 #mainArticle {
     grid-area: article;
+    padding: 50px 100px;
+}
+.index#mainArticle {
+    padding: 0;
 }
 
 #mainNav {
@@ -84,4 +96,16 @@ body {
 }
 .hidden {
     display: none;
+}
+input {
+    padding: 0.6em;
+    border: 1px solid rgb(204,204,204);
+    outline:none;
+    font-family: 'Stem Regular', Arial, Helvetica, sans-serif;
+}
+input:focus, input:focus-visible {
+    box-shadow: 0 0 0 2px rgba(18, 73, 137, 0.9);
+}
+p, li {
+    font-family: 'Stem Regular', Arial, Helvetica, sans-serif;
 }

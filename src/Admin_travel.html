@@ -8,18 +8,6 @@
     <link rel="icon" href="img/favicon.png" type="image/png">
 
     <title>Промтрансинвест - страхование будущего</title>
-    <script>
-        function showData() {
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("occasions").innerHTML = this.responseText;
-                }
-            };
-            xmlhttp.open("GET", "php/show-kasko-occasions.php?q=" + localStorage.getItem('personID'), true);
-            xmlhttp.send();
-        }
-    </script>
 </head>
 
 <body>
@@ -36,7 +24,7 @@
                 </a>
             </li>
             <li class="header__item">
-                <a href="kasko.html" class="link">
+                <a href="#" class="link">
                     <p class="text">
                         Страхование КАСКО
                     </p>
@@ -85,87 +73,99 @@
         </form>
     </header>
     <article id="mainArticle">
-        <div class="occasion__info">
         <h2 class="title">
-            Автокаско в Беларуси 
+            Расчет стоимости страхования для выезжающих за границу
         </h2>
-        <h3 class="subtitle">
-            План действий
-        </h3>
-        <ol>
-            <li class="list__item">
-                Принять разумные и доступные меры, чтобы уменьшить возможные убытки. 
-                  </li>
-                  <li class="list__item">
-                    Немедленно заявить о произошедшем событии в компетентные органы (ГАИ, милицию, МЧС и т.п.).
-                      </li>  
-            <li class="list__item">
-                Заполнить заявление
-                  </li>
-        </ol>
-        <button class="button occasion__button">
-            Сообщить онлайн
-        </button>
-    </div>
-    <button class="show-profile-data button" onclick="showData()">
-        Просмотреть данные
-    </button>
-    <div id="occasions"><b></b></div>
-
-        <div class="occasion__online hidden">
-            <form class="occasion_form" action="php/kasko-occasion.php" method="POST">
-            <h2 class="subtitle">
-                Заполнить заявление КАСКО
-            </h2>
-            <p class="text">
-                Заявка обрабатывается в течение 24-х часов.
-            </p>
-            <label for="mark" class="text">
-                Марка автомобиля
+        <!-- <form class="travel-form" onsubmit="php/travel.php" method="post">
+            <ol>
+                <li>
+            <h3 class="subtitle">
+                Данные о поездке
+            </h3>
+            <div>
+                <div>
+            <label for="country" class="text">
+                Куда едете?
             </label>
-            <input type="text" id="mark" name="mark">
-            <label for="affair" class="text">
-                Договор страхования, номер договора
-            </label>
-            <input type="text" id="affair" name="affair">
-            <label for="place" class="text">
-                Место события (насел.пункт, улица, дом, иное)
-            </label>
-            <input type="text" id="place" name="place">
-            <label for="time" class="text">
-                Время наступления события
-            </label>
-            <input type="text" id="time" name="time">
-          
-            <input type="radio" name="kasko_occasion" id="DTP" value="DTP">
-            <label for="DTP">ДТП</label>    
-           
-            <input type="radio" name="kasko_occasion" id="fire" value="fire">
-            <label for="fire">Пожар</label>        
-
-            <input type="radio" name="kasko_occasion" id="disaster" value="disaster">
-            <label for="disaster">Стихийное бедствие</label>    
-
-            <input type="radio" name="kasko_occasion" id="theft" value="theft">
-            <label for="theft">Угон</label>    
-
-            <p class="text">Были ли повреждены во время события другие транспортные средства?</p>  
-            <input type="radio" name="damage" id="damage_yes" value="yes">
-            <label for="damage_yes">Да</label>        
-            <input type="radio" name="damage" id="damage_no" value="no">
-            <label for="damage_no">Нет</label>        
-
-            <p class="text">Причинен ли вред здоровью водителя или пассажиров?</p>  
-            <input type="radio" name="harm" id="harm_yes" value="yes">
-            <label for="harm_yes">Да</label>        
-            <input type="radio" name="harm" id="harm_no" value="no">
-            <label for="harm_no">Нет</label>        
-
-            <button type="submit" class="button button_occasion">
-                Сообщить!
-            </button>
-        </form>
+            <input type="text" class="country_input" id="country" name="country">
         </div>
+        </div>
+    </li> -->
+    <!-- <li>
+        <h3 class="subtitle">
+            Страховая сумма
+        </h3>        
+        <input type="range" name="sum" id="sum" min="30000" max="90000">
+    </li> -->
+    <!-- <li>
+        <h3 class="subtitle">
+            Дата поездки
+        </h3>        
+        <input type="text" id="date" name="date">
+    </li> -->
+    <!-- <li>
+        <h3 class="subtitle">
+            Ваша поездка предполагает
+        </h3>        
+
+        <input type="radio" name="type_of_relax" id="none" value="none">
+        <label for="none">Отсутствие активного и экстремального отдыха</label>        
+
+        <input type="radio" name="type_of_relax" id="active" value="active">
+        <label for="active">Активный отдых</label>    
+
+        <input type="radio" name="type_of_relax" id="extreme" value="extreme">
+        <label for="extreme">Экстремальный отдых</label>    
+    </li>-->
+    <!-- </ol>  
+    <button class="travel_submit" type="submit">
+        Отправить заявку
+    </button>
+        </form> -->
+
+        <form class="travel-form" action="php/Admin_travel.php" method="post">
+            <ol>
+                <li>
+            <h3 class="subtitle">
+                Данные о поездке
+            </h3>
+            <label for="country" class="text">
+                Куда едете?
+            </label>
+            <input type="text" class="country_input" id="country" name="country">
+</li>  
+</li>
+<li>
+    <h3 class="subtitle">
+        Страховая сумма
+    </h3>        
+    <input type="range" name="sum" id="sum" min="30000" max="90000">
+</li> 
+ <li>
+    <h3 class="subtitle">
+        Дата поездки
+    </h3>        
+    <input type="text" id="date" name="date">
+</li> 
+ <li>
+    <h3 class="subtitle">
+        Ваша поездка предполагает
+    </h3>        
+
+    <input type="radio" name="type_of_relax" id="none" value="none">
+    <label for="none">Отсутствие активного и экстремального отдыха</label>        
+
+    <input type="radio" name="type_of_relax" id="active" value="active">
+    <label for="active">Активный отдых</label>    
+
+    <input type="radio" name="type_of_relax" id="extreme" value="extreme">
+    <label for="extreme">Экстремальный отдых</label>    
+</li>
+
+ </ol>
+            <button class="button" type="submit">Отправить</button>
+        </form>
+        <p class="title"></p>
     </article>
     <nav id="mainNav">Nav</nav>
     <footer class="footer" id="pageFooter">
@@ -173,5 +173,4 @@
     </footer>
 </body>
 </body>
-
 </html>

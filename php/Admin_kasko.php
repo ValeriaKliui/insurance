@@ -9,7 +9,8 @@ ini_set('display_errors', true);
     $type = "Kasko";
     $personID = $conn->real_escape_string($_POST["personID"]);
     $insuredID = mt_rand(1000, 5000);
-    
+    $Admin = 'Admin';
+
     $mark = $conn->real_escape_string($_POST["mark"]);
     $model = $conn->real_escape_string($_POST["model"]);
     $year = $conn->real_escape_string($_POST["year"]);
@@ -18,7 +19,7 @@ ini_set('display_errors', true);
     $multidrive = $conn->real_escape_string($_POST["multidrive"]);
 
     $sql = "INSERT INTO insurance (personID, program, cost, type, insuredID) VALUES ( '$personID','$program', '$cost', '$type', '$insuredID')";
-    $sql2 = "INSERT INTO kasko_objects (personID, insuredID, model, year, obj_cost,territory,multidrive) VALUES ('$personID','$insuredID', '$model', '$year', '$obj_cost', '$territory','$multidrive')";
+    $sql2 = "INSERT INTO kasko_objects (Admin, personID, insuredID, model, year, obj_cost,territory,multidrive) VALUES ('$Admin','$personID','$insuredID', '$model', '$year', '$obj_cost', '$territory','$multidrive')";
 
     if($conn->query($sql) && $conn->query($sql2)){
         echo "Данные успешно добавлены";

@@ -96,7 +96,7 @@
             </svg>
             <p class="subtitle">128</p>
         </div>
-        <button class="button button-logout"> Log out </button>
+        <button class="button button-logout"> Выйти </button>
         <form action="login.html" class="button-login">
             <button class="button button-login">
                 войти
@@ -171,10 +171,16 @@
 
 
         <div class="profile-data hidden">
+            <p class="text">
+                Тут указаны ваши персональные данные.
+            </p>
             <button class="show-profile-data button" onclick="showData()">
                 Просмотреть данные
             </button>
-            <div id="user-data"><b>ИНФА О ЧЕЛЕ</b></div>
+            <div id="user-data"><b></b></div>
+            <p class="text">
+                Вы можете отредактировать данные.
+            </p>
             <button class="edit-profile-data button">
                 Отредактировать данные
             </button>
@@ -214,13 +220,6 @@
                     Сохранить данные
                 </button>
             </form>
-            <form class="insurances">
-                <select name="users" onchange="showUser(this.value)" class="insurances__select">
-                    <option value="">Select a person:</option>
-                    <option value="">Peter Griffin</option>
-                </select>
-            </form>
-            <div id="txtHint"><b>Person info will be listed here...</b></div>
         </div>
 
         <div class="profile__occasion hidden">
@@ -265,17 +264,16 @@
         </div>
     </article>
     <nav id="mainNav">
-        <button class="profile__services">
+        <button class="button profile__services">
             Услуги
         </button>
-        <button class="profile__data">
+        <button class="button profile__data">
             Мой профиль
         </button>
-        <button class="profile__occasion">
+        <button class="button profile__occasion">
             Страховой случай
         </button>
     </nav>
-    <div id="siteAds">Ads</div>
     <footer class="footer" id="pageFooter">
         sd
     </footer>

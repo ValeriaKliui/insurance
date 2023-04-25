@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["username"]) && isset($_POST["password"])) {
-    $conn = new mysqli("localhost", "root", "root", "testdb3");
+    $conn = new mysqli("localhost", "f0810445_root", "root", "f0810445_testdb3");
     if($conn->connect_error){
         die("Ошибка: " . $conn->connect_error);
     }

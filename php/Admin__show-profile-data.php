@@ -22,43 +22,64 @@ ini_set('display_errors', true);
 
 
 $q = ($_GET['q']);
+
 $con = mysqli_connect("localhost", "f0810445_root", "root", "f0810445_testdb3");
 if (!$con) {
     die('Could not connect: ');
 }
-mysqli_select_db($con,"medical_occasions");
+mysqli_select_db($con,"users_data");
 
-$sql="SELECT * FROM medical_occasions inner join users_data on medical_occasions.personID = users_data.personID WHERE medical_occasions.status <> '".$q."'";
+$sql="SELECT * FROM users_data WHERE surname = '".$q."'";
 $result = mysqli_query($con,$sql);
 
-echo "<table>
+echo "
+<br><br><br>
+<table>
 <tr>
-<th>ФИО</th>
-<th>Документы</th>
-<th>Дата рождения</th>
+<th>Фамилия</th>
+<th>Имя</th>
+<th>Отчество</th>
+<th>Серия паспорта</th>
+<th>Номер паспорта</th>
+<th>День рождения</th>
 <th>Гражданство</th>
-<th>Полис</th>
-<th>Специализация</th>
-<th>Больница</th>
-<th>Диагноз</th>
-<th>Статус</th>
 </tr>";
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    echo "<td>" . $row['surname'] . " ". $row['name'] . " ". $row['otchestvo'] . "</td>";
-    echo "<td>" . $row['passport_series'] . " ". $row['passport_series'] . "</td>" ;
-    echo "<td>" . $row['birthday'] . "</td>" ;
-    echo "<td>" . $row['residence'] . "</td>" ;
-    echo "<td>" . $row['police'] . "</td>" ;
-    echo "<td>" . $row['specialisation'] . "</td>";
-    echo "<td>" . $row['hospital'] . "</td>";
-    echo "<td>" . $row['diagnos'] . "</td>";
-    echo "<td>" . $row['status'] . "</td>";
+    echo "<td>" . $row['surname'] . "</td>";
+    echo "<td>" . $row['name'] . "</td>";
+    echo "<td>" . $row['otchestvo'] . "</td>";
+    echo "<td>" . $row['passport_series'] . "</td>";
+    echo "<td>" . $row['passport_number'] . "</td>";
+    echo "<td>" . $row['birthday'] . "</td>";
+    echo "<td>" . $row['residence'] . "</td>";
+        echo "</tr>";
+}
+echo "</table>";
+
+$sql2="SELECT cost, type, program FROM insurance where personID in (select personID from users_data where surname = '".$q."')";
+$result2 = mysqli_query($con,$sql2);
+
+echo "
+<br><br><br>
+<table>
+<tr>
+<th>Цена</th>
+<th>Тип</th>
+<th>Программа</th>
+</tr>";
+while($row = mysqli_fetch_array($result2)) {
+    echo "<tr>";
+    echo "<td>" . $row['cost'] . "</td>";
+    echo "<td>" . $row['type'] . "</td>";
+    echo "<td>" . $row['program'] . "</td>";
     // echo "<input class='hidden person_id'  type='text' " . "value=" .$row['personID'] . ">";
     // echo "<td>" . "<form action='php/Admin_change-status.php' method='post' class='form_change-status'> " . "<input class='hidden person_id'  type='text' " . "name='diagnos'"  .  "value=" .$row['diagnos'] . ">" . "<input class='hidden person_id'  type='text' " . "name='personID'"  .  "value=" .$row['personID'] . ">". "<input name='status'><button type='submit' class='button change-status_button'>Обработать</button></form>" . "</td>";
         echo "</tr>";
 }
 echo "</table>";
+
+
 mysqli_close($con);
 ?>
 </body>

@@ -1,7 +1,8 @@
 <?php
 if (isset($_POST["status"])) {
     ini_set('display_errors', true);
-    $conn = new mysqli("localhost", "root", "root", "testdb3");
+    // $conn = new mysqli("localhost", как было "root", "root", "testdb3");
+    $conn = new mysqli("localhost", "f0810445_root", "root", "f0810445_testdb3");
     $personID = $conn->real_escape_string($_POST["personID"]);
     $diagnos = $conn->real_escape_string($_POST["diagnos"]);
     $sql="SELECT * FROM users_data WHERE personID = '".$personID."'";

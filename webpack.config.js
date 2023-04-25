@@ -73,6 +73,22 @@ module.exports = {
       filename: 'Admin_service-med.html',
       template: path.resolve(__dirname, 'src', 'Admin_service-med.html'),
     }),
+    new HtmlWebpackPlugin({
+      filename: 'Admin_health.html',
+      template: path.resolve(__dirname, 'src', 'Admin_health.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'Admin_kasko.html',
+      template: path.resolve(__dirname, 'src', 'Admin_kasko.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'Admin_property.html',
+      template: path.resolve(__dirname, 'src', 'Admin_property.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'Admin_travel.html',
+      template: path.resolve(__dirname, 'src', 'Admin_travel.html'),
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
