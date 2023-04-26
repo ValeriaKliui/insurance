@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST["surname"])) {
     ini_set('display_errors', true);
-    $conn = new mysqli("localhost", "f0810445_root", "root", "f0810445_testdb3");
+    $conn = new mysqli("localhost", "root", "root", "testdb3");
 
 
     $personID = $conn->real_escape_string($_POST["personID"]);

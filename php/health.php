@@ -28,7 +28,6 @@ if (isset($_POST["health"])) {
     } else{
         echo "Ошибка: " . $conn->error;
     }
-    $conn->close();
     
     $title = "Договор ЗАСО 'Промтрансинвест'";
 $body = "<table style='width: 100%;'>
@@ -58,7 +57,40 @@ try {
   
     // Получатель письма
     $mail->addAddress('valeria14003@gmail.com');
-    $text = '<p>Добрый день.</p>' . $personID;
+
+    // $surname = $mysqli->query("SELECT surname from users_data where personID = ");
+    $query2 = "SELECT * FROM `users_data` where personID = ". $personID ."";
+    $result2 = mysqli_query($conn, $query2) or die("Ошибка " . mysqli_error($conn));
+    
+    if($result2)
+    {
+        while($row = mysqli_fetch_assoc($result2))
+        {
+            $surname[] = $row['surname'];
+            $name[] = $row['name'];
+            $otchestvo[] = $row['otchestvo'];
+            $passport_series[] = $row['passport_series'];
+            $passport_number[] = $row['passport_number'];
+
+        }
+    }
+
+    $text = '<body style = "padding: 80px 200px;">
+    <p style="text-align: center;"><b>ДОГОВОР</b></p>
+    <p style="text-align: center;"><b>Добровольное медицинское страхование</b></p>
+    <div style="display: flex; justify-content: space-between">
+    <p>г. Минск</p> <p>' . date('d.m.Y') . '</p>
+    </div>
+    <p style = "text-align: justify;">Закрытое акционерное страховое общество «Промтрансинвест», именуемое в дальнейшем «Страховщик», в лице
+    Гололобова Валерия Валерьевича, действующего на основании доверенности №25 от 19.02.2023 с одной стороны, и ' . $surname[0] .' '. $name[0] . ' '. $otchestvo[0] . ', паспорт ' . $passport_series[0]. ' ' . $passport_number[0] . '
+    , именуемый(-ая) в дальнейшем «Страхователь», с другой стороны, а вместе именуемые
+    «Стороны», в соответствии с лицензией на право осуществления страховой деятельности No 02200/13-00021, выданной на
+    основании решения Министерства финансов Республики Беларусь от 25.03.2004 No 127, на условиях Правил Добровольного медицинского страхования, согласованных Министерством
+    финансов Республики Беларусь от 21.03.2019 рег.No1111 (далее – Правила), принятых Страхователем путем
+    присоединения к настоящему договору страхования, на основании предложения Страховщика, размещенного на его
+    официальном сайте в глобальной компьютерной сети Интернет (www.promtransinvest.by) и принятого Страхователем,
+    заключили настоящий договор страхования о нижеследующем:
+    </p></body>';
     file_put_contents(  'applic.html', $text);
 
     // Прикрипление файлов к письму
@@ -73,5 +105,6 @@ try {
   } catch (Exception $e) {
     $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
   }  
+  $conn->close();
 }
 ?>
