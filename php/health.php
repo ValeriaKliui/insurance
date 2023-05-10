@@ -10,9 +10,8 @@ if (isset($_POST["health"])) {
         die("Ошибка: " . $conn->connect_error);
     }
     // $cost = $conn->real_escape_string(stristr($_POST["cost"], ' ')); - РАССЧИАТТЬ ЦЕНУ
-    $cost = "РАССЧИТАТЬ";
-    $type = "Health";
-    $Admin = 'Admin';
+    $cost = "300";
+    $type = "ДМС";
 
     $personID = $conn->real_escape_string($_POST["personID"]);
     $health = $conn->real_escape_string($_POST["health"]);
@@ -21,7 +20,7 @@ if (isset($_POST["health"])) {
     $date = $conn->real_escape_string($_POST["date"]);
 
     $sql = "INSERT INTO DMS (personID, health, insuredID, sum,date) VALUES ('$personID', '$health',  '$insuredID', '$sum', '$date')";
-    $sql2 = "INSERT INTO insurance (Admin, personID, cost, type, insuredID) VALUES ('$Admin',  '$personID', '$cost', '$type', '$insuredID')";
+    $sql2 = "INSERT INTO insurance ( personID, cost, type, insuredID) VALUES ('$personID', '$cost', '$type', '$insuredID')";
 
     if($conn->query($sql) && $conn->query($sql2)){
         echo "Данные успешно добавлены";
@@ -75,7 +74,7 @@ try {
         }
     }
 
-    $text = '<body style = "padding: 80px 200px;">
+    $text = '<body style = "padding: 20px 20px;">
     <p style="text-align: center;"><b>ДОГОВОР</b></p>
     <p style="text-align: center;"><b>Добровольное медицинское страхование</b></p>
     <div style="display: flex; justify-content: space-between">
@@ -90,7 +89,26 @@ try {
     присоединения к настоящему договору страхования, на основании предложения Страховщика, размещенного на его
     официальном сайте в глобальной компьютерной сети Интернет (www.promtransinvest.by) и принятого Страхователем,
     заключили настоящий договор страхования о нижеследующем:
-    </p></body>';
+    </p>
+    <p style="text-align: center;"><b>1. Предмет договора</b></p>
+    <p style = "text-align: justify;">1.1. По настоящему договору Страховщик обязуется за обусловленную настоящим договором плату (страховую премию),
+    указанную в пункте 5.2 настоящего договора, выплатить страховое возмещение Страхователю (Выгодоприобретателю)
+    при наступлении определенного пунктом 3.1 настоящего договора страхового случая в пределах страховой суммы,
+    предусмотренной пунктом 5.1 настоящего договора.</p>
+    <p style="text-align: center;"><b>2. Объект страхования</b></p>
+    <p style = "text-align: justify;">2.1. Объектом страхования являются не противоречащие законодательству имущественные интересы Страхователя
+    (Выгодоприобретателя), связанные с:
+    утратой (гибелью) зарегистрированного багажа;
+    повреждением чемодана, багажной сумки, кейса или иной тары, в которой перевозился зарегистрированный багаж (далее
+    – чемодан);
+    расходами, понесенными в результате задержки багажа;
+    расходами, понесенными в результате задержки авиаперелета;
+    расходами, понесенными в результате отмены авиаперелета.
+    2.2. Не принимаются на страхование и не считаются застрахованными:
+    незарегистрированный багаж (ручная кладь);
+    любые предметы, перевозимые без чемодана.
+    2.3. Страхование действует в отношении рейса (рейсов) согласно авиабилету.</p>
+    </body>';
     file_put_contents(  'applic.html', $text);
 
     // Прикрипление файлов к письму

@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .list {
@@ -60,7 +61,7 @@ body {
         "header header header"
         "nav article article"
         "footer footer footer";
-    grid-template-rows: 80px 1fr 70px;
+    grid-template-rows: 80px 1fr 5%;
     grid-template-columns: 15% 1fr 15%;
     grid-column-gap: 5px;
     height: 100vh;

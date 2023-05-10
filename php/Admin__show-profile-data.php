@@ -36,6 +36,7 @@ echo "
 <br><br><br>
 <table>
 <tr>
+<th>personID</th>
 <th>Фамилия</th>
 <th>Имя</th>
 <th>Отчество</th>
@@ -46,6 +47,7 @@ echo "
 </tr>";
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
+    echo "<td class='clientID'>" . $row['personID'] . "</td>";
     echo "<td>" . $row['surname'] . "</td>";
     echo "<td>" . $row['name'] . "</td>";
     echo "<td>" . $row['otchestvo'] . "</td>";

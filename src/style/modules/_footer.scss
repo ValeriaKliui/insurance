@@ -1,5 +1,17 @@
 .footer {
-  @include flex_space-between;
-  padding: 0 1.2em;
+  color: $the-lightest;
+  font-family: 'Stem Regular', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding: 0.5em 1.2em;
   background-color: $main-color;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-adr {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
+.link__tel {
+  color: rgb(141, 211, 118);
 }

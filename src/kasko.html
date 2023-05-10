@@ -82,30 +82,18 @@
             <h3 class="subtitle">
                 Данные об автомобиле
             </h3>
-            <div>
+            <div class="kasko__container">
                 <div>
-            <label for="mark" class="text">
-                Марка
-            </label>
-            <input type="text" id="mark" name="mark">
+            <input type="text" id="mark" name="mark" placeholder="Марка">
         </div>
         <div>
-            <label for="model" class="text">
-                Модель
-            </label>
-            <input type="text" id="model" name="model">
+            <input type="text" id="model" name="model" placeholder="Модель">
         </div>
         <div>
-            <label for="age" class="text">
-                Год выпуска
-            </label>
-            <input type="text" id="age" name="year">
+            <input type="text" id="age" name="year" placeholder="Год выпуска">
         </div>
         <div>
-            <label for="cost" class="text">
-                Стоимость
-            </label>
-            <input type="text" id="cost" name="obj_cost">
+            <input type="text" id="cost" name="obj_cost" placeholder="Стоимость">
         </div>
         </div>
     </li>
@@ -114,15 +102,10 @@
             Территория действия
         </h3>        
         <input type="radio" name="territory" id="belarus" value="belarus">
+       <label for="belarus">Республика Беларусь</label>
         <input type="radio" name="territory" id="all-world" value="all-world">
-    </li>
-    <li>
-        <h3 class="subtitle">
-            Мультидрайв
-        </h3>        
-        <input type="radio" name="multidrive" id="multidrive" value="multidrive">
-        <input type="radio" name="multidrive" id="list-of-people" value="list-of-people">
- </li>
+        <label for="all-world">Иное</label>
+            </li>
     </ol>
     <h3 class="subtitle">
         Стоимость страхования
@@ -154,8 +137,8 @@
             <p class="cost cost_pragmatic">100</p>
         </li>
     </ul>
-    <button class="kasko_submit" type="submit">
-        Отправить заявку
+    <button class="button kasko_submit" type="submit">
+        Приобрести договор
     </button>
         </form>
         <p class="final-cost title"></p>

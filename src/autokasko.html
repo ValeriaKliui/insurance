@@ -136,7 +136,7 @@
                 Время наступления события
             </label>
             <input type="text" id="time" name="time">
-          
+          <div class="occasions__info">
             <input type="radio" name="kasko_occasion" id="DTP" value="DTP">
             <label for="DTP">ДТП</label>    
            
@@ -150,17 +150,17 @@
             <label for="theft">Угон</label>    
 
             <p class="text">Были ли повреждены во время события другие транспортные средства?</p>  
-            <input type="radio" name="damage" id="damage_yes" value="yes">
+            <input type="radio" name="damage" id="damage_yes" value="Да">
             <label for="damage_yes">Да</label>        
-            <input type="radio" name="damage" id="damage_no" value="no">
+            <input type="radio" name="damage" id="damage_no" value="Нет">
             <label for="damage_no">Нет</label>        
 
             <p class="text">Причинен ли вред здоровью водителя или пассажиров?</p>  
-            <input type="radio" name="harm" id="harm_yes" value="yes">
+            <input type="radio" name="harm" id="harm_yes" value="Да">
             <label for="harm_yes">Да</label>        
-            <input type="radio" name="harm" id="harm_no" value="no">
+            <input type="radio" name="harm" id="harm_no" value="Нет">
             <label for="harm_no">Нет</label>        
-
+        </div>
             <button type="submit" class="button button_occasion">
                 Сообщить!
             </button>

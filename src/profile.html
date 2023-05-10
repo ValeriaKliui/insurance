@@ -37,6 +37,17 @@
             xmlhttp.open("GET", "php/show-profile-data.php?q=" + personID, true);
             xmlhttp.send();
         }
+        function showAffairs(){
+            let personID = localStorage.getItem('personID');
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("user-affairs").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "php/show-affairs.php?q=" + personID, true);
+            xmlhttp.send();
+        }
 
     </script>
 </head>
@@ -167,6 +178,13 @@
                     </form>
                 </div>
             </div>
+            <p class="subtitle family__title">
+                Имеющиеся договоры
+            </p>
+            <button class="show-profile-data button" onclick="showAffairs()">
+                Просмотреть данные
+            </button>
+            <div id="user-affairs"><b></b></div>
         </div>
 
 

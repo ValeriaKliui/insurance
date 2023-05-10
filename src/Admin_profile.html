@@ -19,8 +19,9 @@
             };
             xmlhttp.open("GET", "php/Admin__show-profile-data.php?q=" + personSurname.value, true);
             xmlhttp.send();
+            let clientID = document.querySelector('.clientID');
+if (clientID) localStorage.setItem('clientID', clientID.innerHTML); 
         }
-
     </script>
 </head>
 
@@ -89,6 +90,20 @@
     <article id="mainArticle">
 
         <div class="family profile__services">
+            <div class="profile-data">
+                <p class="subtitle family__title">
+                Найти договор
+            </p>
+                <div class="admin__profile-data">
+                <input type="text" id="surname" name="surname" class="person-surname" placeholder="Введите фамилию">
+                <button class="show-profile-data button" onclick="showData()">
+                    Просмотреть данные
+                </button>
+            </div>
+                <div id="user-data"><b></b></div>
+            </div>
+    
+    
             <p class="subtitle family__title">
                 Оформить договор
             </p>
@@ -147,17 +162,15 @@
                     </form>
                 </div>
             </div>
-        </div>
 
-
-        <div class="profile-data hidden">
-            <div class="admin__profile-data">
-            <input type="text" id="surname" name="surname" class="person-surname" placeholder="Введите фамилию">
-            <button class="show-profile-data button" onclick="showData()">
-                Просмотреть данные
+            <p class="subtitle family__title">
+                Отчетность
+            </p>
+            <form action="php/report.php">
+            <button class="button button_report">
+                Скачать отчет по заключенным договорам
             </button>
-        </div>
-            <div id="user-data"><b></b></div>
+        </form>
         </div>
 
         <div class="profile__occasion hidden">
@@ -194,9 +207,6 @@
     </article>
     <nav id="mainNav">
         <button class="button profile__services">
-            Оформление договора
-        </button>
-        <button class="button profile__data">
             Договоры
         </button>
         <button class="button profile__occasion">
