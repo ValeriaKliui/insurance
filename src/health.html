@@ -121,7 +121,7 @@
                     <h3 class="subtitle">
                         Страховая сумма
                     </h3>
-                    <input type="range" name="sum" id="sum" min="30000" max="90000">
+                    <input type="text" name="sum" class="sum">
                 </li>
                 <li>
                     <h3 class="subtitle">
@@ -130,14 +130,47 @@
                     <input type="text" id="date" name="date">
                 </li>
                      </ol>
+                     <input type="hidden" id="cost" name="cost" value="5" class="cost">
+                     <div class="health__cost final-cost title">30</div>  
             <button class="button" type="submit">Отправить</button>
         </form>
         <p class="title"></p>
     </article>
-    <nav id="mainNav">Nav</nav>
+    <nav id="mainNav">
+        <div class="aside-holder">
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Произошёл страховой случай?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Оформить</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Хотите приобрести страховку?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Купить полис</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
     <footer class="footer" id="pageFooter">
-        sd
+        <div class="footer-adr">
+            <div>
+            Офис: Республика Беларусь, 220050 г.&nbsp;Минск, ул.&nbsp;Мясникова, 40
+            </div>
+                <div>
+<a href="tel:+37517367-79-22" class="link link__tel">+375 (17) 367-79-22</a></div>
+            <div class="footer-adr__string">
+                <div>Эл. почта: <a href="mailto:office@ingos.by" class="link">office@promtransinvest.by</a></div>
+            </div>
+        </div>
     </footer>
+
 </body>
 </body>
 

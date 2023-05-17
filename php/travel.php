@@ -6,8 +6,8 @@ if (isset($_POST["country"])) {
         die("Ошибка: " . $conn->connect_error);
     }
     // $cost = $conn->real_escape_string(stristr($_POST["cost"], ' ')); - РАССЧИАТТЬ ЦЕНУ
-    $cost = "РАССЧИТАТЬ";
-    $type = "Travel";
+    $cost = $conn->real_escape_string($_POST["cost"]);
+    $type = "Путешествия";
 
     $personID = $conn->real_escape_string($_POST["personID"]);
     $country = $conn->real_escape_string($_POST["country"]);
@@ -20,11 +20,7 @@ if (isset($_POST["country"])) {
     $sql = "INSERT INTO travel_objects (personID, country, type_of_relax, insuredID, sum,date) VALUES ('$personID', '$country', '$type_of_relax', '$insuredID', '$sum', '$date')";
     $sql2 = "INSERT INTO insurance (personID, cost, type, insuredID) VALUES ( '$personID', '$cost', '$type', '$insuredID')";
 
-    if($conn->query($sql) && $conn->query($sql2)){
-        echo "Данные успешно добавлены";
-    } else{
-        echo "Ошибка: " . $conn->error;
-    }
+    header("Location: /profile.html");
     $conn->close();
 }
 ?>

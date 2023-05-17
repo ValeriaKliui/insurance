@@ -10,11 +10,11 @@ if (isset($_POST["health"])) {
         die("Ошибка: " . $conn->connect_error);
     }
     // $cost = $conn->real_escape_string(stristr($_POST["cost"], ' ')); - РАССЧИАТТЬ ЦЕНУ
-    $cost = "РАССЧИТАТЬ";
+    $cost = $conn->real_escape_string($_POST["cost"]);
     $type = "Health";
     $Admin = 'Admin';
 
-    $personID =mt_rand(1000, 5000);
+    $personID = $conn->real_escape_string($_POST["personID"]);
     $health = $conn->real_escape_string($_POST["health"]);
     $insuredID = mt_rand(1000, 5000);
     $sum = $conn->real_escape_string($_POST["sum"]);

@@ -10,7 +10,7 @@ if (isset($_POST["type_of_property"])) {
         die("Ошибка: " . $conn->connect_error);
     }
     // $cost = $conn->real_escape_string(stristr($_POST["cost"], ' ')); - РАССЧИАТТЬ ЦЕНУ
-    $cost = "РАССЧИТАТЬ";
+    $cost = $conn->real_escape_string($_POST["cost"]);
     $type = "Property";
     $Admin = 'Admin';
 

@@ -8,11 +8,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $name = $conn->real_escape_string($_POST["username"]);
     $password = $conn->real_escape_string($_POST["password"]);
     $sql = "INSERT INTO users (personID, name, password) VALUES ('$personID', '$name', '$password')";
-    if($conn->query($sql)){
-        echo "Данные успешно добавлены";
-    } else{
-        echo "Ошибка: " . $conn->error;
-    }
+    header("Location: /login.html");
     $conn->close();
 }
 ?>

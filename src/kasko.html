@@ -76,7 +76,13 @@
         <h2 class="title">
             Расчет стоимости страхования (калькулятор) Авто КАСКО
         </h2>
-        <form class="calculation-form" onsubmit="php/kasko.php" method="post">
+        <p class="text">
+            ДТП, авария, в том числе из-за других участников дорожного движения, погодных условий, состояния дорожного покрытия, попадания камней – все это и многое другое не может и не должно помешать вам реализовать свои планы!
+            </p>
+            <p class="text">
+Вне зависимости от того, насколько хорошо вы водите автомобиль, полную уверенность в сохранности вложенных в него средств вам даст только правильно заключенный договор страхования.
+        </p>
+        <form class="calculation-form" action="php/kasko.php" method="post">
             <ol>
                 <li>
             <h3 class="subtitle">
@@ -84,7 +90,7 @@
             </h3>
             <div class="kasko__container">
                 <div>
-            <input type="text" id="mark" name="mark" placeholder="Марка">
+            <input type="text" id="mark" name="mark" placeholder="Марка" class="mark__input">
         </div>
         <div>
             <input type="text" id="model" name="model" placeholder="Модель">
@@ -93,7 +99,7 @@
             <input type="text" id="age" name="year" placeholder="Год выпуска">
         </div>
         <div>
-            <input type="text" id="cost" name="obj_cost" placeholder="Стоимость">
+            <input type="text" id="sum" name="sum" placeholder="Стоимость" class="sum">
         </div>
         </div>
     </li>
@@ -112,40 +118,71 @@
     </h3>
     <ul class="form__choices list">
         <li class="form__choice">
-            <input type="radio" name="cost" id="full" value="full">
+            <input type="radio" name="program" id="full" value="500">
             <label for="full">"Полное каско" без франшиз</label>        
             <p class="cost cost_full">500</p>
         </li>
         <li class="form__choice">
-            <input type="radio" name="cost" id="500_from2" value="500_from2">
+            <input type="radio" name="program" id="500_from2" value="400">
             <label for="500_from2">"КАСКО-Автопрофи с франшизой 500BYN со второго случая"</label>    
             <p class="cost cost_500_from2">400</p>    
         </li>
         <li class="form__choice">
-            <input type="radio" name="cost" id="500_from1" value="500_from1">
+            <input type="radio" name="program" id="500_from1" value="350">
             <label for="500_from1">"КАСКО-Автопрофи с франшизой 500BYN с первого случая"</label>        
             <p class="cost cost_500_from1">350</p>
         </li>
         <li class="form__choice">
-            <input type="radio" name="cost" id="optim" value="optim">
+            <input type="radio" name="program" id="optim" value="250">
             <label for="optim">"КАСКО-Оптимальное" без франшиз</label>        
             <p class="cost cost_optim">250</p>
         </li>
         <li class="form__choice">
-            <input type="radio" name="cost" id="pragmatic" value="pragmatic">
+            <input type="radio" name="program" id="pragmatic" value="100">
             <label for="pragmatic">"КАСКО-Прагматик" без франшиз</label>        
             <p class="cost cost_pragmatic">100</p>
         </li>
     </ul>
+    <input type="hidden" id="cost" name="program value="100">
+    <div class="kasko__cost final-cost title">100</div>   
     <button class="button kasko_submit" type="submit">
         Приобрести договор
     </button>
         </form>
-        <p class="final-cost title"></p>
     </article>
-    <nav id="mainNav">Nav</nav>
+    <nav id="mainNav">
+        <div class="aside-holder">
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Произошёл страховой случай?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Оформить</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Хотите приобрести страховку?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Купить полис</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
     <footer class="footer" id="pageFooter">
-        sd
+        <div class="footer-adr">
+            <div>
+            Офис: Республика Беларусь, 220050 г.&nbsp;Минск, ул.&nbsp;Мясникова, 40
+            </div>
+                <div>
+<a href="tel:+37517367-79-22" class="link link__tel">+375 (17) 367-79-22</a></div>
+            <div class="footer-adr__string">
+                <div>Эл. почта: <a href="mailto:office@ingos.by" class="link">office@promtransinvest.by</a></div>
+            </div>
+        </div>
     </footer>
 </body>
 </body>

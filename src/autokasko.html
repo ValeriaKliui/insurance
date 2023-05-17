@@ -107,7 +107,7 @@
             Сообщить онлайн
         </button>
     </div>
-    <button class="show-profile-data button" onclick="showData()">
+    <button class="show-profile-data show-profile-data__button button" onclick="showData()">
         Просмотреть данные
     </button>
     <div id="occasions"><b></b></div>
@@ -137,16 +137,16 @@
             </label>
             <input type="text" id="time" name="time">
           <div class="occasions__info">
-            <input type="radio" name="kasko_occasion" id="DTP" value="DTP">
+            <input type="radio" name="kasko_occasion" id="DTP" value="ДТП">
             <label for="DTP">ДТП</label>    
            
-            <input type="radio" name="kasko_occasion" id="fire" value="fire">
+            <input type="radio" name="kasko_occasion" id="fire" value="Пожар">
             <label for="fire">Пожар</label>        
 
-            <input type="radio" name="kasko_occasion" id="disaster" value="disaster">
+            <input type="radio" name="kasko_occasion" id="disaster" value="Стихийное бедствие">
             <label for="disaster">Стихийное бедствие</label>    
 
-            <input type="radio" name="kasko_occasion" id="theft" value="theft">
+            <input type="radio" name="kasko_occasion" id="theft" value="Угон">
             <label for="theft">Угон</label>    
 
             <p class="text">Были ли повреждены во время события другие транспортные средства?</p>  
@@ -167,9 +167,39 @@
         </form>
         </div>
     </article>
-    <nav id="mainNav">Nav</nav>
+    <nav id="mainNav">
+        <div class="aside-holder">
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Произошёл страховой случай?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Оформить</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Хотите приобрести страховку?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Купить полис</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
     <footer class="footer" id="pageFooter">
-        sd
+        <div class="footer-adr">
+            <div>
+            Офис: Республика Беларусь, 220050 г.&nbsp;Минск, ул.&nbsp;Мясникова, 40
+            </div>
+                <div>
+<a href="tel:+37517367-79-22" class="link link__tel">+375 (17) 367-79-22</a></div>
+            <div class="footer-adr__string">
+                <div>Эл. почта: <a href="mailto:office@ingos.by" class="link">office@promtransinvest.by</a></div>
+            </div>
+        </div>
     </footer>
 </body>
 </body>

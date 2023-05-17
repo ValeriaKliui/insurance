@@ -13,11 +13,7 @@ if (isset($_POST["police"])) {
     $status = "На рассмотрении";
 
     $sql = "INSERT INTO medical_occasions (personID, police, specialisation, hospital,diagnos, status) VALUES ('$personID', '$police', '$specialisation','$hospital','$diagnos','$status')";
-    if($conn->query($sql)){
-        echo "Данные успешно добавлены";
-    } else{
-        echo "Ошибка: " . $conn->error;
-    }
+    header("Location: /profile.html");
     $conn->close();
 }
 ?>

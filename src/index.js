@@ -8,8 +8,6 @@ import { redirectAnouthorized } from './modules/redirect-anouthorized';
 import { checkPassword } from './modules/check-password';
 import { doRegister } from './modules/register'
 import { checkWhoOnline } from './modules/check-who-online'
-import {createAdmin} from './modules/register'
-import {calculate} from './modules/kasko'
 import {show_insurances} from './modules/profile'
 import {toggleAccordion} from './modules/faq'
 import { showProfileData } from './modules/show-profile-data';
@@ -17,12 +15,11 @@ import { hideButtons } from './modules/hide-buttons';
 import { sendOccasion } from './modules/medical-occasions';
 import { checkWhoOnlineID } from './modules/check-who-onlineID'
 import { redirectAdmin } from './modules/redirect-admin';
+import { countTravel } from './modules/count-travel';
+import { countProperty } from './modules/count-property';
+import { countHealth } from './modules/count-health';
+import { countKasko } from './modules/count-kasko';
 
-if (!localStorage.getItem('Admin')) createAdmin();
-
-if (localStorage.length>1) {
-localStorage.setItem('personID', checkWhoOnlineID());
-}
 let iconOfUser = document.querySelector('.authorized-user');
 let buttonLogOut = document.querySelector('.button-logout');
 console.log(checkWhoOnline())
@@ -67,10 +64,6 @@ if (registerButton)  {
     }
 }
 
-let finalCost = document.querySelector('.final-cost');
-if (finalCost) {
-    calculate();
-}
 
 const items = document.querySelectorAll(".accordion button");
 items.forEach(item => item.addEventListener('click', toggleAccordion));
@@ -115,7 +108,7 @@ if (occasionButton) {
 
 let travelForm = document.querySelector('.country_input');
 if (travelForm) {
-travelForm.oninput = () =>{
+    travelForm.oninput = () =>{
     if (!document.querySelector('.person_id')) {
         let personIDarea = document.createElement('input');
         personIDarea.classList.add('person_id');
@@ -127,7 +120,6 @@ travelForm.oninput = () =>{
         }    
 }
 }
-
 let propertyForm = document.querySelector('.property_input');
 if (propertyForm) {
     propertyForm.oninput = () =>{
@@ -142,6 +134,20 @@ if (propertyForm) {
         }    
 }
 }
+let kaskoForm = document.querySelector('.mark__input');
+if (kaskoForm) {
+    kaskoForm.oninput = () =>{
+    if (!document.querySelector('.person_id')) {
+        let personIDarea = document.createElement('input');
+        personIDarea.classList.add('person_id');
+        let form = document.querySelector('.calculation-form');
+        form.append(personIDarea);
+        personIDarea.setAttribute("value", checkWhoOnlineID());
+        personIDarea.setAttribute("name", "personID");
+        personIDarea.hidden = true;
+        }    
+}
+}
 
 
 let healthForm = document.querySelector('.health_input');
@@ -160,14 +166,14 @@ if (healthForm) {
 }
 
 if (checkWhoOnline()==='Admin') {
-let healthForm = document.querySelector('.health_input');
+let healthForm = document.querySelector('.kasko_input_admin');
 if (healthForm) {
     healthForm.oninput = () =>{
     if (!document.querySelector('.person_id')) {
         let clientID = localStorage.getItem('clientID')
         let personIDarea = document.createElement('input');
         personIDarea.classList.add('person_id');
-        let form = document.querySelector('.health-form');
+        let form = document.querySelector('.calculation-form');
         form.append(personIDarea);
         personIDarea.setAttribute("value", clientID);
         personIDarea.setAttribute("name", "personID");
@@ -176,9 +182,26 @@ if (healthForm) {
 }
 }
 }
+if (checkWhoOnline()==='Admin') {
+    let healthForm = document.querySelector('.health_input_admin');
+    if (healthForm) {
+        healthForm.oninput = () =>{
+        if (!document.querySelector('.person_id')) {
+            let clientID = localStorage.getItem('clientID')
+            let personIDarea = document.createElement('input');
+            personIDarea.classList.add('person_id');
+            let form = document.querySelector('.health-form');
+            form.append(personIDarea);
+            personIDarea.setAttribute("value", clientID);
+            personIDarea.setAttribute("name", "personID");
+            personIDarea.hidden = true;
+            }    
+    }
+    }
+    }
 
 if (checkWhoOnline()==='Admin') {
-let travelForm = document.querySelector('.country_input');
+let travelForm = document.querySelector('.country_input_admin');
 if (travelForm) {
 travelForm.oninput = () =>{
     if (!document.querySelector('.person_id')) {
@@ -196,7 +219,7 @@ travelForm.oninput = () =>{
 }
 
 if (checkWhoOnline()==='Admin') {
-let propertyForm = document.querySelector('.property_input');
+let propertyForm = document.querySelector('.property_input_admin');
 if (propertyForm) {
     propertyForm.oninput = () =>{
     if (!document.querySelector('.person_id')) {
@@ -213,7 +236,24 @@ if (propertyForm) {
 }
 }
 
-
+if (checkWhoOnline()==='Admin') {
+    let propertyForm = document.querySelector('.mark__input_admin');
+    if (propertyForm) {
+        propertyForm.oninput = () =>{
+        if (!document.querySelector('.person_id')) {
+            let clientID = localStorage.getItem('clientID')
+            let personIDarea = document.createElement('input');
+            personIDarea.classList.add('person_id');
+            let form = document.querySelector('.calculation-form');
+            form.append(personIDarea);
+            personIDarea.setAttribute("value", clientID);
+            personIDarea.setAttribute("name", "personID");
+            personIDarea.hidden = true;
+            }    
+    }
+    }
+    }
+    
 
 if (checkWhoOnline() === 'Admin') {
     redirectAdmin();
@@ -224,3 +264,15 @@ let changeStatusButton = document.querySelector('.change-status_button');
 if (changeStatusButton) {
     changeStatus();
 }
+
+if (document.querySelector('.travel__cost')){
+countTravel()}
+
+if (document.querySelector('.property__cost')){
+    countProperty()}
+
+    if (document.querySelector('.health__cost')){
+        countHealth()}
+
+        if (document.querySelector('.kasko__cost')){
+            countKasko()}

@@ -5,7 +5,6 @@ if (isset($_POST["surname"])) {
     $personID = $conn->real_escape_string($_POST["personID"]);
     $surname = $conn->real_escape_string($_POST["surname"]);
 
-    echo   $personID;
     $sql="SELECT * FROM users_data WHERE personID = '".$personID."'";
     $result = mysqli_query($conn,$sql);
     if($row = mysqli_fetch_array($result)) {
@@ -54,11 +53,7 @@ if (isset($_POST["surname"])) {
         $birthday = $conn->real_escape_string($_POST["birthday"]);
         $residence = $conn->real_escape_string($_POST["residence"]);
         $sql = "INSERT INTO users_data (personID, surname, name, otchestvo, passport_series, passport_number, residence) VALUES ('$personID', '$surname', '$name', '$otchestvo', '$passport_series', '$passport_number', '$residence')";    
-        if($conn->query($sql)){
-        echo "Данные успешно добавлены";
-    } else{
-        echo "Ошибка: " . $conn->error;
-    }
+        header("Location: /profile.html");
     }
 
     // $surname = $conn->real_escape_string($_POST["surname"]);

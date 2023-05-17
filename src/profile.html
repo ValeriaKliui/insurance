@@ -48,7 +48,6 @@
             xmlhttp.open("GET", "php/show-affairs.php?q=" + personID, true);
             xmlhttp.send();
         }
-
     </script>
 </head>
 
@@ -115,11 +114,20 @@
         </form>
     </header>
     <article id="mainArticle">
-
         <div class="family profile__services">
+            <div class="family__text_container">
             <p class="subtitle family__title">
                 Оформить договор
             </p>
+            <p>
+                Вы заключаете долгосрочный договор страхования на период от 3 до 18 лет. 
+                </p>
+                <p>В течение срока страхования вы регулярно делаете страховые взносы, которые накапливаются на вашем лицевом счёте.
+                    </p>
+   <p> По завершению срока страхования Стравита выплачивает вам накопленную сумму + дополнительный инвестиционный доход. 
+    На протяжении всего срока действия договора вы застрахованы по выбранным рискам. При наступлении страхового случая Стравита производит выплату, согласно условиям договора и правилам страхования.
+</p>   
+</div>
             <div class="family__container">
                 <div class="family__item">
                     <img src="../src/img/car.png" alt="" class="family__icon">
@@ -181,6 +189,14 @@
             <p class="subtitle family__title">
                 Имеющиеся договоры
             </p>
+            <div class="family__text_container">
+                <p>
+                    Просмотрите договоры, которые вы заключали ранее.
+                </p>
+                <p>
+                    В случае возникновения вопрос свяжитесь с ЗАСО "Промтрансинвест", набрав номер 128.
+                </p>
+            </div>
             <button class="show-profile-data button" onclick="showAffairs()">
                 Просмотреть данные
             </button>
@@ -189,23 +205,24 @@
 
 
         <div class="profile-data hidden">
+            <h3 class="subtitle profile-data__subtitle">
+                Данные клиента
+            </h3>
+            <div class="family__text_container">
+                <br>
             <p class="text">
-                Тут указаны ваши персональные данные.
+                Тут указаны ваши персональные данные, которые вы можете просмотреть и, в случае необходимости, отредактировать.
             </p>
-            <button class="show-profile-data button" onclick="showData()">
+            <p class="text">
+                Для просмотра данных нажмите на кнопку "просмотреть данные", чтобы отредактировать - заполните те поля, которые хотите изменить.
+            </p>
+        </div>
+            <button class="show-profile-data show-profile-data__moved button" onclick="showData()">
                 Просмотреть данные
             </button>
             <div id="user-data"><b></b></div>
-            <p class="text">
-                Вы можете отредактировать данные.
-            </p>
-            <button class="edit-profile-data button">
-                Отредактировать данные
-            </button>
             <form class="hidden" id="profile-form" action="php/profile-data.php" method="post">
-                <h3 class="subtitle">
-                    Данные клиента
-                </h3>
+<br>
                 <label for="surname" class="text">
                     Фамилия
                 </label>
@@ -241,12 +258,14 @@
         </div>
 
         <div class="profile__occasion hidden">
-            <h3 class="subtitle">
+            <h3 class="subtitle profile__occasion_subtitle">
                 Страховой случай
             </h3>
+            <div class="family__text_container">
             <p class="text">
                 Чтобы вы не растерялись в случае наступления страхового случая, мы подготовили пошаговое описание действий. Просто выберите свою ситуацию и следуйте инструкциям.
             </p>
+        </div>
             <div class="family profile__services">
                 <div class="family__container">
                     <div class="family__item">
@@ -293,8 +312,18 @@
         </button>
     </nav>
     <footer class="footer" id="pageFooter">
-        sd
+        <div class="footer-adr">
+            <div>
+            Офис: Республика Беларусь, 220050 г.&nbsp;Минск, ул.&nbsp;Мясникова, 40
+            </div>
+                <div>
+<a href="tel:+37517367-79-22" class="link link__tel">+375 (17) 367-79-22</a></div>
+            <div class="footer-adr__string">
+                <div>Эл. почта: <a href="mailto:office@ingos.by" class="link">office@promtransinvest.by</a></div>
+            </div>
+        </div>
     </footer>
+
 </body>
 </body>
 

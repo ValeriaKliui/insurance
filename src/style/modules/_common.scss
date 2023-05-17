@@ -43,12 +43,12 @@ html {
     text-transform: uppercase;
     cursor: pointer;
     color: #fff;
-    padding: 15px 50px;
+    padding: 10px 50px;
     background: $primary-color no-repeat 20px 50%;
     border: none;
     background-size: 22px;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-
+    border-radius: 5px;
     &:hover {
         box-shadow: 4px 4px 8px $light-shadow;
         transform: translate(0, -2px);
@@ -78,7 +78,7 @@ body {
 
 #mainArticle {
     grid-area: article;
-    padding: 50px 100px;
+    padding: 25px 100px 50px 100px; 
 }
 .index#mainArticle {
     padding: 0;
@@ -86,7 +86,7 @@ body {
 
 #mainNav {
     grid-area: nav;
-    background-color: $main-color;
+    background: linear-gradient(to bottom, #3A5795 0%, #2B4886 100%);;
 }
 
 #siteAds {
@@ -99,14 +99,31 @@ body {
     display: none;
 }
 input {
-    padding: 0.6em;
+    padding: 0.2em;
     border: 1px solid rgb(204,204,204);
     outline:none;
     font-family: 'Stem Regular', Arial, Helvetica, sans-serif;
+    border-radius: 5px;
 }
 input:focus, input:focus-visible {
     box-shadow: 0 0 0 2px rgba(18, 73, 137, 0.9);
 }
 p, li {
     font-family: 'Stem Regular', Arial, Helvetica, sans-serif;
+}
+ol {
+    padding: 0;
+}
+.family__text_profile {
+    text-align: center;
+}
+.to-order{
+    flex-direction: column;
+    display: flex;
+    max-width: 800px;
+    justify-content:center;
+    gap: 20px;
+}
+.final-cost {
+    padding: 15px 0;
 }

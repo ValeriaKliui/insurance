@@ -94,9 +94,17 @@ if (clientID) localStorage.setItem('clientID', clientID.innerHTML);
                 <p class="subtitle family__title">
                 Найти договор
             </p>
+            <div class="family__text_container">
+            <p class="text family__text_profile">
+                Вы можете просмотреть клиентов, с которыми заключены договоры, набрав их фамилию.
+            </p>
+            <p class="text family__text_profile">
+                После этого вы сможете заключить с данным клиентом договор.
+            </p>
+        </div>
                 <div class="admin__profile-data">
                 <input type="text" id="surname" name="surname" class="person-surname" placeholder="Введите фамилию">
-                <button class="show-profile-data button" onclick="showData()">
+                <button class="show-profile-data show-profile-data__admin button" onclick="showData()">
                     Просмотреть данные
                 </button>
             </div>
@@ -214,7 +222,16 @@ if (clientID) localStorage.setItem('clientID', clientID.innerHTML);
         </button>
     </nav>
     <footer class="footer" id="pageFooter">
-        sd
+        <div class="footer-adr">
+            <div>
+            Офис: Республика Беларусь, 220050 г.&nbsp;Минск, ул.&nbsp;Мясникова, 40
+            </div>
+                <div>
+<a href="tel:+37517367-79-22" class="link link__tel">+375 (17) 367-79-22</a></div>
+            <div class="footer-adr__string">
+                <div>Эл. почта: <a href="mailto:office@ingos.by" class="link">office@promtransinvest.by</a></div>
+            </div>
+        </div>
     </footer>
 </body>
 </body>

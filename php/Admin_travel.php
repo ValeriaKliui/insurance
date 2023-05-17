@@ -6,7 +6,7 @@ if (isset($_POST["country"])) {
         die("Ошибка: " . $conn->connect_error);
     }
     // $cost = $conn->real_escape_string(stristr($_POST["cost"], ' ')); - РАССЧИАТТЬ ЦЕНУ
-    $cost = "РАССЧИТАТЬ";
+    $cost = $conn->real_escape_string($_POST["cost"]);
     $type = "Travel";
     $Admin = 'Admin';
 

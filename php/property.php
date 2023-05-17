@@ -9,9 +9,8 @@ if (isset($_POST["type_of_property"])) {
     if($conn->connect_error){
         die("Ошибка: " . $conn->connect_error);
     }
-    // $cost = $conn->real_escape_string(stristr($_POST["cost"], ' ')); - РАССЧИАТТЬ ЦЕНУ
-    $cost = "РАССЧИТАТЬ";
-    $type = "Property";
+    $cost = $conn->real_escape_string($_POST["cost"]);
+    $type = "Имущество";
 
     $personID = $conn->real_escape_string($_POST["personID"]);
     $type_of_property = $conn->real_escape_string($_POST["type_of_property"]);
@@ -21,12 +20,7 @@ if (isset($_POST["type_of_property"])) {
 
     $sql = "INSERT INTO property (personID, type_of_property, insuredID, sum,address) VALUES ('$personID', '$type_of_property', '$insuredID', '$sum', '$address')";
     $sql2 = "INSERT INTO insurance (personID, cost, type, insuredID) VALUES ( '$personID', '$cost', '$type', '$insuredID')";
-
-    if($conn->query($sql) && $conn->query($sql2)){
-        echo "Данные успешно добавлены";
-    } else{
-        echo "Ошибка: " . $conn->error;
-    }
+    header("Location: /profile.html");
     $conn->close();
 }
 

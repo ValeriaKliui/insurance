@@ -78,43 +78,80 @@
         </h2>
         <form class="property-form" action="php/Admin_property.php" method="post">
             <ol>
-                <li>
+                <li class="to-order">
                     <h3 class="subtitle">
                         Какое недвижимое имущество подлежит страхованию?
                     </h3>        
                 
-                    <input type="radio" name="type_of_property" id="flat" value="flat">
-                    <label for="flat">Квартира</label>        
+                    <label for="flat">
+                        <input type="radio" name="type_of_property" id="flat" value="flat">
+                        Квартира
+                    </label>        
                 
-                    <input type="radio" name="type_of_property" id="house" value="house">
-                    <label for="house">Жилой дом</label>    
+                    <label for="house"> 
+                                           <input type="radio" name="type_of_property" id="house" value="house">
+                                           Жилой дом
+                    </label>    
                 
-                    <input type="radio" name="type_of_property" id="cottage" value="cottage">
-                    <label for="cottage">Дача</label>    
+                    <label for="cottage">
+                        <input type="radio" name="type_of_property" id="cottage" value="cottage">
+                        Дача
+                    </label>    
                 </li>   
                 <li>
                     <h3 class="subtitle">
                         Страховая сумма
                     </h3>        
-                    <input type="range" name="sum" id="sum" min="30000" max="90000">
+                    <input type="text" name="sum" class="sum">
                 </li>              
                 <li>
             <h3 class="subtitle">
                 Данные об имуществе
             </h3>
-            <label for="address" class="text">
-                Адрес
-            </label>
-            <input type="text" class="property_input" id="address" name="address">
+            <p>
+            Адрес</p>
+            <input type="text" class="property_input_admin" id="address" name="address">
 </li>  
  </ol>
+ <input type="hidden" id="cost" name="cost" value="5">
+ <div class="property__cost final-cost title">40</div>
             <button class="button" type="submit">Отправить</button>
         </form>
         <p class="title"></p>
     </article>
-    <nav id="mainNav">Nav</nav>
+    <nav id="mainNav">
+        <div class="aside-holder">
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Произошёл страховой случай?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Оформить</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+            <div class="aside-widget">
+                <a href="profile.html" class="aside-widget__inner link">
+                    <strong class="aside-widget__title">Хотите приобрести страховку?</strong>
+                    <div class="aside-widget__footer">
+                        <div class="btn-frame"><span>
+                            <button class="button button_aside">Купить полис</button></span><i class="icon-angle-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
     <footer class="footer" id="pageFooter">
-        sd
+        <div class="footer-adr">
+            <div>
+            Офис: Республика Беларусь, 220050 г.&nbsp;Минск, ул.&nbsp;Мясникова, 40
+            </div>
+                <div>
+<a href="tel:+37517367-79-22" class="link link__tel">+375 (17) 367-79-22</a></div>
+            <div class="footer-adr__string">
+                <div>Эл. почта: <a href="mailto:office@ingos.by" class="link">office@promtransinvest.by</a></div>
+            </div>
+        </div>
     </footer>
 </body>
 </body>

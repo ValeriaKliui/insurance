@@ -17,11 +17,7 @@ if (isset($_POST["mark"])) {
     $status = "На рассмотрении";
 
     $sql = "INSERT INTO kasko_occasions (personID, mark, affair, place,time,kasko_occasion,damage,harm, status) VALUES ('$personID', '$mark', '$affair','$place','$time','$kasko_occasion','$damage','$harm','$status')";
-    if($conn->query($sql)){
-        echo "Данные успешно добавлены";
-    } else{
-        echo "Ошибка: " . $conn->error;
-    }
+    header("Location: /profile.html");
     $conn->close();
 }
 ?>
